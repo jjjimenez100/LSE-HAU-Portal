@@ -13,7 +13,7 @@ class CreateMembersRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tblMemberRoles', function (Blueprint $table) {
+        Schema::create('Roles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('role', 15);
             $table->unique('role');

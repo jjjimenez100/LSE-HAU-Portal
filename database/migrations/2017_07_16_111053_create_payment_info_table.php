@@ -13,7 +13,7 @@ class CreatePaymentInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tblPaymentInfo', function (Blueprint $table) {
+        Schema::create('Payments', function (Blueprint $table) {
             $table->increments('id');
             $table->boolean('isPaid');
             $table->unique('isPaid');

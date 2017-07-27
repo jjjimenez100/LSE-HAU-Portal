@@ -13,11 +13,13 @@ class CreateMemberCredentialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tblMemberCredentials', function (Blueprint $table) {
+        Schema::create('MemberCredentials', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('roleID')->unsigned();
             $table->string('studentNumber', 9);
             $table->unique('studentNumber');
             $table->string("password", 30);
+            $table->timestamps();
         });
     }
 

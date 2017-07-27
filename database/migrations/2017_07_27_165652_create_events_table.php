@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGenderTable extends Migration
+class CreateEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateGenderTable extends Migration
      */
     public function up()
     {
-        Schema::create('Genders', function (Blueprint $table) {
+        Schema::create('Events', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('gender', 8);
-            $table->unique('gender');
+            $table->string('eventName', 50);
+            $table->integer('seatCount');
+            $table->timestamp('eventDate');
             $table->timestamps();
         });
     }
@@ -28,6 +29,8 @@ class CreateGenderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tblGender');
+        Schema::table('Events', function (Blueprint $table) {
+            //
+        });
     }
 }
