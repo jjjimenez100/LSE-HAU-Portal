@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +17,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/email', function(){
+   return view('email');
+});
+
+Route::get('/rtc1', function(){
+    return view('rtc');
+});
+
+Route::get('/rtc2', function(){
+    return view('rtc2');
+});

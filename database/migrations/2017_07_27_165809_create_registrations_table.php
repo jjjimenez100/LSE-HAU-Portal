@@ -13,7 +13,7 @@ class CreateRegistrationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Registrations', function (Blueprint $table) {
+        Schema::create('registrations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('memberID')->unsigned();
             $table->integer('eventID')->unsigned();
@@ -27,7 +27,7 @@ class CreateRegistrationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('Registrations', function (Blueprint $table) {
+        Schema::table('registrations', function (Blueprint $table) {
             //
         });
     }

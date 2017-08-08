@@ -13,7 +13,7 @@ class CreateMemberInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('MemberInfos', function (Blueprint $table) {
+        Schema::create('memberinformations', function (Blueprint $table) {
             $table->increments('id');
 
             //foreign keys
@@ -44,6 +44,6 @@ class CreateMemberInfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('MemberInfos');
+        Schema::dropIfExists('memberinformations');
     }
 }

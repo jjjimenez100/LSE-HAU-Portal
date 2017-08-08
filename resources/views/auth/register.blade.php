@@ -60,19 +60,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('studentNumber') ? ' has-error' : '' }}">
-                            <label for="studentNumber" class="col-md-4 control-label">Student Number</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="text" class="form-control" name="studentNumber" required>
-
-                                @if ($errors->has('studentNumber'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('studentNumber') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

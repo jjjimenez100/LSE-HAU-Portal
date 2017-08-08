@@ -13,7 +13,7 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Transactions', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('memberID')->unsigned();
             $table->string('action', 100);
@@ -28,7 +28,7 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('Transactions', function (Blueprint $table) {
+        Schema::table('transactions', function (Blueprint $table) {
             //
         });
     }

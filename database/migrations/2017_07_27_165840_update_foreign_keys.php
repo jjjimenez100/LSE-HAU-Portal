@@ -13,24 +13,24 @@ class UpdateForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('MemberCredentials', function (Blueprint $table) {
-            $table->foreign('roleID')->references('id')->on('Roles');
+        Schema::table('membercredentials', function (Blueprint $table) {
+            $table->foreign('roleID')->references('id')->on('roles');
         });
 
-        Schema::table('MemberInfos', function (Blueprint $table) {
-            $table->foreign("credentialsID")->references('id')->on('MemberCredentials');
-            $table->foreign("genderID")->references('id')->on('Genders');
-            $table->foreign("collegeID")->references('id')->on('Colleges');
-            $table->foreign("paymentID")->references('id')->on('Payments');
+        Schema::table('memberinformations', function (Blueprint $table) {
+            $table->foreign("credentialsID")->references('id')->on('membercredentials');
+            $table->foreign("genderID")->references('id')->on('genders');
+            $table->foreign("collegeID")->references('id')->on('colleges');
+            $table->foreign("paymentID")->references('id')->on('payments');
         });
 
-        Schema::table('Transactions', function (Blueprint $table) {
-            $table->foreign('memberID')->references('id')->on('MemberInfos');
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->foreign('memberID')->references('id')->on('memberinformations');
         });
 
-        Schema::table('Registrations', function (Blueprint $table) {
-            $table->foreign('eventID')->references('id')->on('Events');
-            $table->foreign('memberID')->references('id')->on('MemberInfos');
+        Schema::table('registrations', function (Blueprint $table) {
+            $table->foreign('eventID')->references('id')->on('events');
+            $table->foreign('memberID')->references('id')->on('memberinformations');
         });
     }
 

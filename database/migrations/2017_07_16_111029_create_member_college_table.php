@@ -13,7 +13,7 @@ class CreateMemberCollegeTable extends Migration
      */
     public function up()
     {
-        Schema::create('Colleges', function (Blueprint $table) {
+        Schema::create('colleges', function (Blueprint $table) {
             $table->increments('id');
             $table->string('collegeDepartment', 6);
             $table->unique('collegeDepartment');
@@ -28,6 +28,6 @@ class CreateMemberCollegeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tblMemberCollege');
+        Schema::dropIfExists('colleges');
     }
 }

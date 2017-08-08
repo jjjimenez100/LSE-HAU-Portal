@@ -13,7 +13,7 @@ class CreateMemberCredentialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('MemberCredentials', function (Blueprint $table) {
+        Schema::create('membercredentials', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('roleID')->unsigned();
             $table->string('studentNumber', 9);
@@ -30,6 +30,6 @@ class CreateMemberCredentialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tblMemberCredentials');
+        Schema::dropIfExists('membercredentials');
     }
 }

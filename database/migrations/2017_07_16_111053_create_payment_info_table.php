@@ -13,7 +13,7 @@ class CreatePaymentInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Payments', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
             $table->boolean('isPaid');
             $table->unique('isPaid');
@@ -28,6 +28,6 @@ class CreatePaymentInfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tblPaymentInfo');
+        Schema::dropIfExists('payments');
     }
 }
