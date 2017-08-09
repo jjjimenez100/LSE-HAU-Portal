@@ -6,6 +6,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta charset="utf-8">
+    <style>
+        video {
+            object-fit: fill;
+            width: 30%;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,12 +27,12 @@
         <button class="btn btn-default" id="share-file" style="margin: 5%">Upload File</button>
     </div>
 
-        <div id="chat-container">
-            <div id="file-container"></div>
-            <div class="chat-output"></div>
-        </div>
+    <div id="chat-container">
+        <div id="file-container"></div>
+        <div class="chat-output"></div>
+    </div>
 
-        <div id="videos-container"></div>
+    <div id="videos-container"></div>
 
     <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
     <!--<script src="/socket.io/socket.io.js"></script>-->
@@ -118,18 +124,18 @@
             // seems room is already opened
             connection.join(useridAlreadyTaken);
         };
-
-        var roomid = '';
-        if (localStorage.getItem(connection.socketMessageEvent)) {
+        /**
+         var roomid = '';
+         if (localStorage.getItem(connection.socketMessageEvent)) {
             roomid = localStorage.getItem(connection.socketMessageEvent);
         } else {
             roomid = connection.token();
         }
-        document.getElementById('roomID').value = roomid;
-        document.getElementById('roomID').onkeyup = function() {
+         document.getElementById('roomID').value = roomid;
+         document.getElementById('roomID').onkeyup = function() {
             localStorage.setItem(connection.socketMessageEvent, this.value);
         };
-        if(roomid && roomid.length) {
+         if(roomid && roomid.length) {
             document.getElementById('roomID').value = roomid;
             localStorage.setItem(connection.socketMessageEvent, roomid);
             // auto-join-room
@@ -142,7 +148,7 @@
                     setTimeout(reCheckRoomPresence, 5000);
                 });
             })();
-        }
+        } **/
     </script>
 
 </article>

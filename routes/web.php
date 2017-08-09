@@ -22,10 +22,13 @@ Route::get('/email', function(){
    return view('email');
 });
 
+Route::get('/sms', function(){
+    return view('sms');
+});
+
 Route::get('/rtc1', function(){
     return view('rtc');
 });
 
-Route::get('/rtc2', function(){
-    return view('rtc2');
-});
+Route::post('/sentEmail', "EmailController@sendEmail")->name('confirmedEmail');
+Route::post('/sentSms', "SmsController@sendSms")->name('confirmedSms');
