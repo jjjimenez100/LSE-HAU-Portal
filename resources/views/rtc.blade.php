@@ -124,31 +124,6 @@
             // seems room is already opened
             connection.join(useridAlreadyTaken);
         };
-        /**
-         var roomid = '';
-         if (localStorage.getItem(connection.socketMessageEvent)) {
-            roomid = localStorage.getItem(connection.socketMessageEvent);
-        } else {
-            roomid = connection.token();
-        }
-         document.getElementById('roomID').value = roomid;
-         document.getElementById('roomID').onkeyup = function() {
-            localStorage.setItem(connection.socketMessageEvent, this.value);
-        };
-         if(roomid && roomid.length) {
-            document.getElementById('roomID').value = roomid;
-            localStorage.setItem(connection.socketMessageEvent, roomid);
-            // auto-join-room
-            (function reCheckRoomPresence() {
-                connection.checkPresence(roomid, function(isRoomExists) {
-                    if(isRoomExists) {
-                        connection.join(roomid);
-                        return;
-                    }
-                    setTimeout(reCheckRoomPresence, 5000);
-                });
-            })();
-        } **/
     </script>
 
 </article>
