@@ -15,8 +15,8 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('memberID')->unsigned();
-            $table->string('action', 100);
+            $table->integer('userID')->unsigned();
+            $table->string('action');
             $table->timestamp('date');
         });
     }
@@ -28,8 +28,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('transactions', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('transactions');
     }
 }

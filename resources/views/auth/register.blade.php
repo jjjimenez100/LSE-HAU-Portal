@@ -24,6 +24,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('college') ? ' has-error' : '' }}">
+                            <label for="college" class="col-md-4 control-label">College</label>
+
+                            <div class="col-md-6">
+                                <input id="college" type="text" class="form-control" name="college" value="{{ old('college') }}" required>
+
+                                @if ($errors->has('college'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('college') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
@@ -33,6 +47,20 @@
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('contactNumber') ? ' has-error' : '' }}">
+                            <label for="contactNumber" class="col-md-4 control-label">Contact Number</label>
+
+                            <div class="col-md-6">
+                                <input id="contactNumber" type="text" class="form-control" name="contactNumber" value="{{ old('contactNumber') }}" required>
+
+                                @if ($errors->has('contactNumber'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('contactNumber') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -57,6 +85,13 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+
                             </div>
                         </div>
 

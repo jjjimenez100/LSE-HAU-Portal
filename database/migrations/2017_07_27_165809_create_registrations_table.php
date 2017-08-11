@@ -15,8 +15,9 @@ class CreateRegistrationsTable extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('memberID')->unsigned();
+            $table->integer('userID')->unsigned();
             $table->integer('eventID')->unsigned();
+            $table->timestamps();
         });
     }
 
@@ -27,8 +28,6 @@ class CreateRegistrationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('registrations', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('registrations');
     }
 }

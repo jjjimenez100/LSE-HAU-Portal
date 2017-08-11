@@ -29,8 +29,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::table('events', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('events');
     }
 }

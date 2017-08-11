@@ -13,24 +13,18 @@ class UpdateForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('membercredentials', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->foreign('roleID')->references('id')->on('roles');
-        });
-
-        Schema::table('memberinformations', function (Blueprint $table) {
-            $table->foreign("credentialsID")->references('id')->on('membercredentials');
-            $table->foreign("genderID")->references('id')->on('genders');
             $table->foreign("collegeID")->references('id')->on('colleges');
-            $table->foreign("paymentID")->references('id')->on('payments');
         });
 
         Schema::table('transactions', function (Blueprint $table) {
-            $table->foreign('memberID')->references('id')->on('memberinformations');
+            $table->foreign('userID')->references('id')->on('users');
         });
 
         Schema::table('registrations', function (Blueprint $table) {
             $table->foreign('eventID')->references('id')->on('events');
-            $table->foreign('memberID')->references('id')->on('memberinformations');
+            $table->foreign('userID')->references('id')->on('users');
         });
     }
 
@@ -41,8 +35,6 @@ class UpdateForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('MemberInfos', function (Blueprint $table) {
-            //
-        });
+        //none
     }
 }

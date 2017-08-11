@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Carbon\Carbon;
 use App\User;
+use App\College;
+use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -21,7 +24,6 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
     /**
      * Where to redirect users after registration.
      *
@@ -49,8 +51,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:120|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'college' => 'required|string|min:3|max:5',
+            'contactNumber' => 'required|string|min:11|max:13|unique:users',
         ]);
     }
 
@@ -66,6 +70,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'collegeID' => College::where('collegeDepartment', $data['college'])->first()->id,
+            'roleID' => Role::$defaultRoleId,
+            'contactNumber' => $data['contactNumber'],
         ]);
     }
 }
