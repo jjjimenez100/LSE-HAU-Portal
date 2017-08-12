@@ -15,10 +15,11 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
-    {
+    public function handle($request, Closure $next, $guard = null) //eto yung lalandingan
+    { //pag nag login ulit siya
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            $userRole = Auth::User()->role->role;
+            return redirect("/{$userRole}-home");
         }
 
         return $next($request);

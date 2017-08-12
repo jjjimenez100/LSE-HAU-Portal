@@ -32,3 +32,9 @@ Route::get('/rtc1', function(){
 
 Route::post('/sentEmail', "EmailController@sendEmail")->name('confirmedEmail');
 Route::post('/sentSms', "SmsController@sendSms")->name('confirmedSms');
+
+Route::get('/User-home', 'UserHomeController@index');
+
+Route::get('/Officer-home', 'OfficerHomeController@index');
+
+Route::get('/Admin-home', 'AdminHomeController@index');
