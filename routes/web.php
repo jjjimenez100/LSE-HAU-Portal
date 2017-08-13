@@ -10,13 +10,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'StaticWebsiteController@index')->name('lse');
+
+Route::get('/events', 'StaticWebsiteController@events')->name('events');
+
+Route::get('/about-thebirth', 'StaticWebsiteController@aboutBirth')->name('birth');
+
+Route::get('/contact', 'StaticWebsiteController@contact')->name('contact');
+
+Route::get('/about-mnv', 'StaticWebsiteController@aboutMnv')->name('mnv');
+
+Route::get('/gallery', 'StaticWebsiteController@gallery')->name('gallery');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/email', function(){
    return view('email');

@@ -15,10 +15,15 @@ class RoleChecker
      */
     public function handle($request, Closure $next, $role)
     {
-        $userRole = Auth::User()->role->role;
-        if($userRole != $role){
-            return redirect("/{$userRole}-home");
+        if(!(Auth::check())){
+            return redirect("/");
         }
-        return $next($request);
+        else{
+            $userRole = Auth::User()->role->role;
+            if($userRole != $role){
+                return redirect("/{$userRole}-home");
+            }
+            return $next($request);
+        }
     }
 }

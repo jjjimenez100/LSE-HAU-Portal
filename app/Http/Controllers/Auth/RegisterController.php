@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/User-home';
 
     /**
      * Create a new controller instance.
@@ -74,5 +74,10 @@ class RegisterController extends Controller
             'roleID' => Role::$defaultRoleId,
             'contactNumber' => $data['contactNumber'],
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        return redirect('/');
     }
 }

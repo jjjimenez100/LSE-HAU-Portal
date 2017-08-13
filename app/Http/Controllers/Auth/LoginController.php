@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 use Auth;
 class LoginController extends Controller
 {
@@ -41,4 +43,32 @@ class LoginController extends Controller
         $userRole = Auth::User()->role->role;
         return ("/{$userRole}-home");
     }
+
+    protected function showLoginForm() //prevent anyone from sending get request to /login
+    {
+        return redirect('/');
+    }
+
+   /* protected function sendLoginResponse(Request $request){
+        $request->session()->regenerate();
+        $this->clearLoginAttempts($request);
+        if ($request->ajax()) {
+            return response()->json($this->guard()->user(), 200);
+        }
+        return $this->authenticated($request, $this->guard()->user())
+            ?: redirect()->intended($this->redirectPath());
+    }
+
+    protected function sendFailedLoginResponse(Request $request){
+        if ($request->ajax()) {
+            return response()->json([
+                'error' => Lang::get('auth.failed')
+            ], 401);
+        }
+        return redirect()->back()
+            ->withInput($request->only($this->username(), 'remember'))
+            ->withErrors([
+                $this->username() => Lang::get('auth.failed'),
+            ]);
+    }*/
 }

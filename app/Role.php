@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    static $defaultRoleId = 2;
+    static $defaultRoleId = 3;
     protected $table = "roles";
     protected $fillable = [
         'role',
