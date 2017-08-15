@@ -9,43 +9,47 @@
 
                     <div class="panel-body">
                         <div class="table-responsive">
-                            <table class="table table-hover" id="test">
-                                <thead>
-                                    <tr>
-                                        @foreach($columnNames as $columnName)
-                                            @if($loop->index == 6 || $loop->index == 7) @continue
-                                            @elseif($loop->index == 1)<th>College</th>
-                                            @elseif($loop->index == 2)<th>Role</th>
-                                            @else<th>{{ $columnName }}</th>
-                                            @endif
-                                        @endforeach
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($users as $user)
-                                        <tr id="{{ $user->id }}">
-                                        @foreach($columnNames as $columnName)
-                                                @if($loop->index == 6 || $loop->index == 7)
-                                                    @continue
-                                                @elseif($loop->index == 1)
-                                                  <td>{{ $colleges[($user->$columnName)-1]['collegeDepartment'] }}</td>
-                                                @elseif($loop->index == 2)
-                                                    <td>{{ $roles[($user->$columnName)-1]['role'] }}</td>
-                                                @else
-                                                    <td>{{ $user->$columnName }}</td>
-                                                @endif
-                                        @endforeach
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            {{ $users->links() }}
+                            @include('partials.users')
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 
+    <div class="modal fade" tabindex="-1" role="dialog" id="edit">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>EDIT GOES HERE&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
+    <div class="modal fade" tabindex="-1" role="dialog" id="delete">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this user?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Okay</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 @endsection

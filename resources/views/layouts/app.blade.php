@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="app">
@@ -76,29 +77,5 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <!--ajax-->
-    {{--<script>
-        $(function() {
-            $('body').on('click', '.pagination a', function(e) {
-                e.preventDefault();
-
-                var url = $(this).attr('href');
-                getArticles(url);
-                window.history.pushState("", "", url);
-            });
-
-            function getArticles(url) {
-                $.ajax({
-                    url : url
-                }).done(function (data) {
-                    document.open();
-                    document.write(data);
-                    document.close();
-                }).fail(function () {
-                    alert('Articles could not be loaded.');
-                });
-            }
-        });
-    </script>--}}
 </body>
 </html>

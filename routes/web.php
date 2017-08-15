@@ -23,7 +23,7 @@ Route::get('/about-mnv', 'StaticWebsiteController@aboutMnv')->name('mnv');
 
 Route::get('/gallery', 'StaticWebsiteController@gallery')->name('gallery');
 
-Route::resource('/manage-users', 'UsersController');
+Route::resource('manage/users', 'UsersController');
 
 Auth::routes();
 

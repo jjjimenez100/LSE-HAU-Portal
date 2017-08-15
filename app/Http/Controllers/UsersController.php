@@ -21,15 +21,6 @@ class UsersController extends Controller
         $colleges = College::all();
         $roles = Role::all();
 
-/*     AJAX   if ($request->ajax()) {
-            return view('manageusers', [
-                'columnNames' => $columnNames,
-                'users' => $users,
-                'roles' => $roles,
-                'colleges' => $colleges
-            ])->render();
-        }*/
-
         return view('manageusers')
             ->with('columnNames', $columnNames)
             ->with('users', $users)
