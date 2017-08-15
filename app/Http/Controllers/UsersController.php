@@ -17,7 +17,7 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         $columnNames = Schema::getColumnListing('users');
-        $users = User::paginate(10);
+        $users = User::all();
         $colleges = College::all();
         $roles = Role::all();
 

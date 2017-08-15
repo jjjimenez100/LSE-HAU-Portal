@@ -11,6 +11,8 @@
     <title>{{ config('LSE-HAU') }}</title>
 
     <!-- Styles -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.15/r-2.1.1/datatables.min.css"/>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -71,11 +73,20 @@
                 </div>
             </div>
         </nav>
-
         @yield('content')
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+   <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.15/r-2.1.1/datatables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#test').DataTable();
+        });
+
+       /* $('#test').on('draw.dt', function() {
+
+        });*/
+    </script>
 </body>
 </html>

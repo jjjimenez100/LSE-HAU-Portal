@@ -27,15 +27,15 @@
                 @endforeach
                 <td>
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 150%;"></i>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 120%;"></i>
                     </button>
 
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">
-                        <i class="fa fa-trash-o" aria-hidden="true" style="font-size: 150%"></i>
+                        <i class="fa fa-trash-o" aria-hidden="true" style="font-size: 120%"></i>
                     </button>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-    {{ $users->links() }}
+
