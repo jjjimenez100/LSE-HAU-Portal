@@ -11,27 +11,27 @@
             <th>Actions</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="tableBody">
         @foreach($users as $user)
             <tr id="{{ $user->id }}">
                 @foreach($columnNames as $columnName)
-                    @if($loop->index == 6 || $loop->index == 7)
+                    @if($columnName == "password" || $columnName == "remember_token")
                         @continue
-                    @elseif($loop->index == 1)
+                    @elseif($columnName == "collegeID")
                         <td>{{ $colleges[($user->$columnName)-1]['collegeDepartment'] }}</td>
-                    @elseif($loop->index == 2)
+                    @elseif($columnName == "roleID")
                         <td>{{ $roles[($user->$columnName)-1]['role'] }}</td>
                     @else
                         <td>{{ $user->$columnName }}</td>
                     @endif
                 @endforeach
                 <td>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 120%;"></i>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit" id="update{{ $user->id }}">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"> Update</i>
                     </button>
-
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">
-                        <i class="fa fa-trash-o" aria-hidden="true" style="font-size: 120%"></i>
+                    <br><br>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete" id="delete{{ $user->id }}">
+                        <i class="fa fa-trash-o" aria-hidden="true"> Delete</i>
                     </button>
                 </td>
             </tr>

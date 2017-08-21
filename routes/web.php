@@ -47,3 +47,7 @@ Route::get('/User-home', 'UserHomeController@index');
 Route::get('/Officer-home', 'OfficerHomeController@index');
 
 Route::get('/Admin-home', 'AdminHomeController@index');
+
+Route::get('/test', function(){
+   return view('partials.modals.addusers');
+});

@@ -2,13 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\User;
 use App\College;
 use App\Role;
 use Illuminate\Support\Facades\Schema;
+use Validator;
+use View;
+use Response;
 class UsersController extends Controller
 {
+    protected $rules = [
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:120|unique:users',
+        'password' => 'required|string|min:6|confirmed',
+        'college' => 'required|string|min:1|max:1',
+        'contactNumber' => 'required|string|min:11|max:13|unique:users'
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +57,33 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = Validator::make(Input::all(), $this->rules);
+        if($validation->fails()){
+            return Response::json(
+                array('errors' => $validation->getMessageBag()->toArray()), 404);
+        }
+
+        else{
+            $newUser = new User;
+            $newUser->collegeID = $request->college;
+            $newUser->contactNumber = $request->contactNumber;
+            $newUser->email = $request->email;
+            $newUser->name = $request->name;
+            $newUser->password = bcrypt($request->password);
+            if($request->has('role')){
+                //pag admin may massubmit na role
+                $newUser->roleID = $request->role;
+            }
+            else{
+                //kasi same form din gagamitin ni officer
+                //kaso di niya nakikita at naeedit yung role
+                //so wala siyang masusubmit na role :)
+                $newUser->roleID = Role::$defaultRoleId;
+            }
+            $newUser->save();
+
+            return response()->json($newUser);
+        }
     }
 
     /**
