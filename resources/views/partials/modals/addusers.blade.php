@@ -4,8 +4,8 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i>
-                     User Information</h4>
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                    Member Information</h4>
             </div>
             <div class="modal-body">
                 <form role="form" class="form-horizontal" method="POST" action="{{ route('register') }}" id="addFormGrp">
@@ -19,7 +19,7 @@
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" placeholder="Full Name" name="name" required/>
                                     <span class="help-block hidden" id="nameError">
-                                <strong id="nameErrorText"></strong>
+                                <strong id="nameErrorText">Please input a name.</strong>
                             </span>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                         <div class="col-sm-10">
                             <input type="email" class="form-control" id="email" placeholder="Email" name="email" required/>
                             <span class="help-block hidden" id="emailError">
-                        <strong id="emailErrorText"></strong>
+                        <strong id="emailErrorText">Emails should at least contain both @ and . symbols.</strong>
                     </span>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
                         <label for="contactNumber" class="col-sm-2 control-label">Contact Number</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="contactNumber" placeholder="Mobile (+63)" name="contactNumber" required/>
-                            <span class="help-block hidden" id="emailError">
-                        <strong id="emailErrorText"></strong>
+                            <span class="help-block hidden" id="contactError">
+                        <strong id="contactNumberErrorText"></strong>
                     </span>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                         <div class="col-sm-10">
                             <input type="password" class="form-control" id="password_confirmation" placeholder="Confirm Password" name="password_confirmation" required/>
                             <span class="help-block hidden" id="confirmPasswordError">
-                        <strong id="confirmPasswordErrorText"></strong>
+                        <strong id="confirmPasswordErrorText">Passwords do not match.</strong>
                     </span>
                         </div>
                     </div>

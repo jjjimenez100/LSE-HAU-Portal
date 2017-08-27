@@ -10,7 +10,7 @@
                     <div class="panel-body">
 
                         <div class="table-responsive">
-                            <button class="btn btn-success" data-toggle="modal" data-target="#add"><i class="fa fa-user-plus" aria-hidden="true"></i> Add New User</button>
+                            <button class="btn btn-success" data-toggle="modal" id="btnAdd" data-target="#add"><i class="fa fa-user-plus" aria-hidden="true"></i> Add New Member</button>
                             <button class="btn btn-default" style="float: right;"><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button>
                             <br><br>
                             @include('partials.users')
