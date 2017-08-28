@@ -93,23 +93,26 @@
 
     //var buttons = '<button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit"> <i class="fa fa-pencil-square-o" aria-hidden="true"> Update</i> </button> <br><br><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete"> <i class="fa fa-trash-o" aria-hidden="true"> Delete</i> </button>';
     var partialBtn1 = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add" id="update';
-    var partialBtn2 = '"> <i class="fa fa-pencil-square-o" aria-hidden="true"> Update</i> </button> <br><br><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete" id="delete';
+    var partialBtn2 = '"> <i class="fa fa-pencil-square-o" aria-hidden="true"> Update</i> </button> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete" id="delete';
     var partialBtn3 = '"> <i class="fa fa-trash-o" aria-hidden="true"> Delete</i> </button>';
     var addBtnLayout = '<i class="fa fa-user-plus" aria-hidden="true"></i> Add';
-    var editBtnLayout = '<i class="fa fa-floppy-o" aria-hidden="true"></i> Update';
+    var editBtnLayout = '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update';
     //cache jquery selectors
     var dataTableClasses = $.fn.dataTable.ext.classes;
     var page = $(document);
     var dataTableInstance;
 
     var btnDismiss = $('#btnDismiss');
+    var btnClose = $('#btnClose');
     var btnSave = $('#triggerAdd');
     var modalAdd = $('#add');
     var modalSuccess = $('#success');
     var modalFailed = $('#failed');
+    var modalDelete = $('#delete');
     var editBtns = $('.edit');
     var deleteBtns = $('.delete');
     var btnAdd = $('#btnAdd');
+    var btnDelete = $('#triggerDelete');
     //input fields cache
     //var hasSpacesOrEmpty = new RegExp("^\s*$");
 
@@ -145,6 +148,11 @@
     });
     editBtns.on('click', editLayout);
     deleteBtns.on('click', fDelete);
+    btnDelete.on('click', deleteUser);
+    btnClose.on('click', function(){
+        if(USER_MODE != 1)
+            window.location.reload(true);
+    });
 
     inputContactNumber.on('input', validateContactNumber);
     inputPassword.on('input', validatePassword);
@@ -180,7 +188,6 @@
     var currentUserId;
     var selectedUser;
     function initializeElements(){
-        btnSave.prop('disabled', true);
         dataTableClasses.sPageButton = 'btn btn-default';
         dataTableClasses.sPageButtonActive = 'btn btn-primary';
         dataTableClasses.sPageButton = 'btn btn-default';
@@ -222,6 +229,7 @@
                     var btn = partialBtn1 + data.id + partialBtn2 + data.id + partialBtn3;
                     $('#test tr:last').attr('id', data.id); //di iccache to
                     $('#test td:last').html(btn); //kasi nag uupdate everytime.
+                    $('#test td:last').addClass('text-nowrap');
                     $('#update'+data.id).on('click', editLayout);
                     $('#delete'+data.id).on('click', fDelete);
                 },
@@ -263,11 +271,11 @@
                     dataType: "json",
                     success: function(data){
                         console.log(data);
-                        selectedUser.find("td:eq(1)").html(collegeOptions.eq(data.collegeID-1).val());
+                        /*selectedUser.find("td:eq(1)").html(collegeOptions.eq(data.collegeID-1).val());
                         selectedUser.find("td:eq(2)").html(roleOptions.eq(data.roleID-1).val());
                         selectedUser.find("td:eq(3)").html(data.contactNumber);
                         selectedUser.find("td:eq(4)").html(data.email);
-                        selectedUser.find("td:eq(5)").html(data.name);
+                        selectedUser.find("td:eq(5)").html(data.name);*/
                         modalAdd.modal('hide');
                         modalSuccess.modal('show');
                     },
@@ -295,6 +303,25 @@
                 }
             );
         }
+    }
+
+    function deleteUser(){
+        $.ajax({
+            url: "{{ route('users.delete') }}",
+            type: "DELETE",
+            data: {
+                "id": currentUserId,
+                "_method": 'DELETE'
+            },
+            dataType: "json",
+            success: function(data){
+                modalDelete.modal('hide');
+                modalSuccess.modal('show');
+            },
+            error: function(data){
+                modalFailed.modal('show');
+             }
+        });
     }
 
     function validateEmail(){
@@ -513,7 +540,10 @@
     }
 
     function fDelete(){
-        var userId = extractId(this.id);
+        USER_MODE = 3;
+        currentUserId = extractId(this.id);
+        selectedUser = $('#'+currentUserId);
+        $('#deleteMsg').html("Are you sure you want to delete <strong>" + selectedUser.find("td:eq(5)").text() + "</strong>?");
     }
 
     function addLayout(){

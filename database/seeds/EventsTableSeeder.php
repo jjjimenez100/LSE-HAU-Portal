@@ -11,7 +11,7 @@ class EventsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Event::class, 40)->create()->each(function($event){
+        factory(App\Event::class, 4)->create()->each(function($event){
            $event->save();
         });
     }

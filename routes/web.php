@@ -31,6 +31,8 @@ Route::post('manage/users', 'UsersController@store')->name('users.store');
 
 Route::post('manage/users/update', 'UsersController@update')->name('users.update');
 
+Route::delete('manage/users/delete', 'UsersController@delete')->name('users.delete');
+
 Auth::routes();
 
 Route::get('/email', function(){

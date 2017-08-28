@@ -14,17 +14,17 @@ class UpdateForeignKeys extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('roleID')->references('id')->on('roles');
-            $table->foreign("collegeID")->references('id')->on('colleges');
+            $table->foreign('roleID')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign("collegeID")->references('id')->on('colleges')->onDelete('cascade');
         });
 
         Schema::table('transactions', function (Blueprint $table) {
-            $table->foreign('userID')->references('id')->on('users');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::table('registrations', function (Blueprint $table) {
-            $table->foreign('eventID')->references('id')->on('events');
-            $table->foreign('userID')->references('id')->on('users');
+            $table->foreign('eventID')->references('id')->on('events')->onDelete('cascade');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

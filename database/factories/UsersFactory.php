@@ -30,7 +30,7 @@ function getRandomContactNumber(){
         $contactNumber .= "".getRandomNumber(1, 9)."";
     }
 
-    return "+63".$contactNumber;
+    return "09".$contactNumber;
 }
 
 function getUniqueContactNumber(){

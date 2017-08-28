@@ -12,6 +12,7 @@ use Validator;
 use View;
 use Response;
 use Illuminate\Validation\Rule;
+use Carbon\Carbon;
 class UsersController extends Controller
 {
     /**
@@ -118,9 +119,6 @@ class UsersController extends Controller
             if($request->has('role')){
                 $user->roleID = $request->role;
             }
-            else{
-                $user->roleID = Role::$defaultRoleId;
-            }
             $user->collegeID = $request->college;
             $user->contactNumber = $request->contactNumber;
             $user->email = $request->email;
@@ -128,5 +126,19 @@ class UsersController extends Controller
 
             return response()->json($user);
         }
+    }
+
+    public function delete(Request $request){
+        $createdAt = User::find($request->id)->created_at;
+        User::destroy($request->id);
+        $message = array(
+            "success" => "true",
+            "message" => "Successfully deleted user.",
+            "timestamp" => array(
+                "created_at" => $createdAt,
+                "deleted_at" => Carbon::now()
+            )
+        );
+        return json_encode($message);
     }
 }
