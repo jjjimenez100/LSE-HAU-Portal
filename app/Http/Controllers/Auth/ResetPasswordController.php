@@ -40,4 +40,11 @@ class ResetPasswordController extends Controller
         $userRole = Auth::User()->role->role;
         return ("/{$userRole}-home");
     }
+
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('auth.passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email]
+        );
+    }
 }

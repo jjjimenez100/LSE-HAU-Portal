@@ -8,6 +8,6 @@ class Event extends Model
 {
     protected $table = "events";
     protected $fillable = [
-      "eventName", "seatCount", "eventDate",
+      "posterPath", "eventName", "seatCount", "eventDate",
     ];
 }

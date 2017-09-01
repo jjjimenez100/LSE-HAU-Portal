@@ -8,8 +8,9 @@
 
 $factory->define(App\Event::class, function(Faker\Generator $faker){
     return [
+        'posterPath' => "hahahaha",
         'eventName' => $faker->sentence(2, true),
         'seatCount' => $faker->randomDigit()*5,
-        'eventDate' => $faker->dateTime(),
+        'eventDate' => $faker->date($format = 'Y-m-d', $max = 'now'),
     ];
 });

@@ -30,8 +30,9 @@ Final requirement for 6SOFTENG. A web based management portal for the organizati
 8. Role level based: (Limit officers to only seeing users, and not being able to see the role field).
 9. Home pages for Admin, Officer and users.
 10. Link forgot password controller from the main website modal link.
-11. Tinker with the reset and forgot password traits.
-12. Event registration for users
+forgot password landing, email url.
+11. Event registration for users
 13. create conferencing room for admins and officers
 14. join conferencing room for users.
 15. Restful api for future extensions of the app.
+16. Announcements tab for admins and officers, (checkbox sms and email)

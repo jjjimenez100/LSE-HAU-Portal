@@ -29,9 +29,14 @@ Route::get('manage/users', 'UsersController@index')->name('users.index');
 
 Route::post('manage/users', 'UsersController@store')->name('users.store');
 
-Route::post('manage/users/update', 'UsersController@update')->name('users.update');
+Route::put('manage/users/update', 'UsersController@update')->name('users.update');
 
 Route::delete('manage/users/delete', 'UsersController@delete')->name('users.delete');
+//
+Route::get('manage/events', 'EventsController@index')->name('events.index');
+Route::post('manage/events', 'EventsController@store')->name('events.store');
+Route::put('manage/events/update', 'EventsController@update')->name('events.update');
+Route::delete('manage/events/delete', 'EventsController@delete')->name('events.delete');
 
 Auth::routes();
 
