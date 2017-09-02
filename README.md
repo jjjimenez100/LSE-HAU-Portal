@@ -36,3 +36,4 @@ forgot password landing, email url.
 14. join conferencing room for users.
 15. Restful api for future extensions of the app.
 16. Announcements tab for admins and officers, (checkbox sms and email)
+17. linisin events.js

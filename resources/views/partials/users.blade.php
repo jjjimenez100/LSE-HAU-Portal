@@ -32,7 +32,7 @@
                     <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" id="delete{{ $user->id }}">
                         <i class="fa fa-trash-o" aria-hidden="true"> Delete</i>
                     </button>
-                    <button type="button" class="btn btn-warning resetPass" data-toggle="modal" data-target="#confirmation" id="resets{{ $user->id }}">
+                    <button type="button" class="btn btn-default resetPass" data-toggle="modal" data-target="#confirmation" id="resets{{ $user->id }}">
                         <i class="fa fa-unlock-alt" aria-hidden="true"> Reset</i>
                     </button>
                 </td>

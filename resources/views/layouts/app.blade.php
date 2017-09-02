@@ -135,9 +135,15 @@
     var selectedUser;
     $body = $("body");
 
+
     $(document).on({
         ajaxStart: function() { $body.addClass("loading");    },
         ajaxStop: function() { $body.removeClass("loading"); }
+    });
+
+    btnDismiss.on('click', function(){
+        modalFailed.modal('hide');
+        modalAdd.modal('show');
     });
 
     function initializeElements(tableSelector){

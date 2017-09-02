@@ -36,7 +36,7 @@ Route::delete('manage/users/delete', 'UsersController@delete')->name('users.dele
 Route::get('manage/events', 'EventsController@index')->name('events.index');
 Route::post('manage/events', 'EventsController@store')->name('events.store');
 Route::put('manage/events/update', 'EventsController@update')->name('events.update');
-Route::delete('manage/events/delete', 'EventsController@delete')->name('events.delete');
+Route::delete('manage/events/delete', 'EventsController@destroy')->name('events.delete');
 
 Auth::routes();
 
@@ -61,6 +61,3 @@ Route::get('/Officer-home', 'OfficerHomeController@index');
 
 Route::get('/Admin-home', 'AdminHomeController@index');
 
-Route::get('/test', function(){
-   return view('partials.modals.addusers');
-});

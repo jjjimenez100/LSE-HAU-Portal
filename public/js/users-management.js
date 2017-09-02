@@ -57,10 +57,6 @@ var editBtnLayout = '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Up
 page.ready(initializeElements($('#tblUsers')));
 btnSave.on('click', save);
 btnAdd.on('click', addLayout);
-btnDismiss.on('click', function(){
-    modalFailed.modal('hide');
-    modalAdd.modal('show');
-});
 
 editBtns.on('click', editLayout);
 deleteBtns.on('click', fDelete);

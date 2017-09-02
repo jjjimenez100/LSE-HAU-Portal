@@ -55,8 +55,9 @@
                             </label><br><br>
                             <img src="" id="posterPreview">
                             <p id="fileName"></p>
-                            <span class="help-block" id="eventPosterError" style="color: red;">
-                            <strong id="eventPosterErrorText">Do not choose and upload any file if you wish to keep the old one.</strong>
+                            <span class="help-block" id="eventPosterError">
+                                <strong id="eventPosterErrorText"></strong><br>
+                                <strong id="noteToUser" class="text-danger">Do not choose and upload any file if you wish to keep the old one.</strong>
                             </span>
                         </div>
                     </div>

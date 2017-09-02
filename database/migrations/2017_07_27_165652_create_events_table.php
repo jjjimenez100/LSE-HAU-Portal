@@ -15,7 +15,8 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('posterPath', 150);
+            $table->string('posterPath', 150)->nullable();
+            $table->string('posterFileName', 150)->nullable();
             $table->string('eventName', 50);
             $table->integer('seatCount');
             $table->date('eventDate');

@@ -24,7 +24,7 @@
     @include('partials.modals.addevents')
     @include('partials.modals.success')
     @include('partials.modals.failed')
-    @include('partials.modals.delete')
+    @include('partials.modals.deleteevents')
 @endsection
 
 @section('additionalScriptFiles')
