@@ -27,13 +27,13 @@
                 @endforeach
                 <td class="text-nowrap">
                     <button type="button" class="btn btn-primary edit" data-toggle="modal" data-target="#add" id="update{{ $user->id }}">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"> Update</i>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     </button>
                     <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" id="delete{{ $user->id }}">
-                        <i class="fa fa-trash-o" aria-hidden="true"> Delete</i>
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
                     </button>
                     <button type="button" class="btn btn-default resetPass" data-toggle="modal" data-target="#confirmation" id="resets{{ $user->id }}">
-                        <i class="fa fa-unlock-alt" aria-hidden="true"> Reset</i>
+                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
                     </button>
                 </td>
             </tr>

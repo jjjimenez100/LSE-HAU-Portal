@@ -242,7 +242,7 @@ function addLayout(){
     btnSave.removeClass('btn-primary');
     btnSave.addClass('btn-success');
 }
-//
+//linis here
 function eventsManagementAjax(requestType, url, userData, modalSelector, modalFailedSelector){
     modalSelector.modal('hide');
     $.ajax({

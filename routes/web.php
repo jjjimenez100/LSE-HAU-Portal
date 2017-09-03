@@ -61,3 +61,4 @@ Route::get('/Officer-home', 'OfficerHomeController@index');
 
 Route::get('/Admin-home', 'AdminHomeController@index');
 
+Route::get('manage/registrations', 'RegistrationsController@index');

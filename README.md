@@ -20,20 +20,20 @@ Final requirement for 6SOFTENG. A web based management portal for the organizati
 1. Implementation of token based Restful Api.
 
 # TO DO / TO FIX
-1. Main website "gallery tab".
+1. Main website "gallery tab". //jerez
 2. Main website "contact tab", fix design (also, https://formspree.io/).
 3. Main website - make "events tab" dynamic. (allow it to fetch data from the database)
 4. Main website -Add input validation on registration modal.
-5. Event Management (CRUD) w/ input validation (same as user management)
+5. Event Management (CRUD) w/ input validation (same as user management) DONE
 6. Profile Management (Update) w/ input validation (no modals)
 7. Design RTC module. (Add more features in the future, not priority)
 8. Role level based: (Limit officers to only seeing users, and not being able to see the role field).
 9. Home pages for Admin, Officer and users.
 10. Link forgot password controller from the main website modal link.
 forgot password landing, email url.
-11. Event registration for users
+11. Event registration for users (tabbed table views) DONE
 13. create conferencing room for admins and officers
 14. join conferencing room for users.
 15. Restful api for future extensions of the app.
-16. Announcements tab for admins and officers, (checkbox sms and email)
+16. Announcements tab for admins and officers, (sms or email) (send to: everyone/users/admins/officers)
 17. linisin events.js

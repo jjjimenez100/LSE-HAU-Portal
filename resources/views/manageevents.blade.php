@@ -28,6 +28,9 @@
 @endsection
 
 @section('additionalScriptFiles')
+    @include('partials.dTablesExternalJs')
+    <script type="text/javascript" src="{{ asset('js/initializeDataTables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/crudAndModals.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/events-management.js') }}"></script>
     <script>
         initializeRoutes("{{ route('events.store') }}", "{{ route('events.update') }}", "{{ route('events.delete') }}");

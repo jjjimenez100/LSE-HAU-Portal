@@ -29,6 +29,9 @@
 @endsection
 
 @section('additionalScriptFiles')
+    @include('partials.dTablesExternalJs')
+    <script type="text/javascript" src="{{ asset('js/initializeDataTables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/crudAndModals.js') }}"></script>
     <script src="{{ asset('js/users-management.js') }}"></script>
     <script>
         initializeRoutes("{{ route('users.store') }}", "{{ route('users.update') }}", "{{ route('users.delete') }}", "{{ route('password.email') }}");
