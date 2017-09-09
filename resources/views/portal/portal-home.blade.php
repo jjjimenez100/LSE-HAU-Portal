@@ -16,6 +16,28 @@
         .active a{
             background: #3f4144 !important;
         }
+
+        .loadingDiv {
+            display:    none;
+            position:   fixed;
+            z-index:    1000;
+            top:        0;
+            left:       0;
+            height:     100%;
+            width:      100%;
+            background: rgba( 255, 255, 255, .8 )
+            url('https://www.thestudio.com/wp-content/themes/thestudio/images/lightbox/filters-load.gif')
+            50% 50%
+            no-repeat;
+        }
+
+        body.loading {
+            overflow: hidden;
+        }
+
+        body.loading .loadingDiv {
+            display: block;
+        }
     </style>
 </head>
 <body>

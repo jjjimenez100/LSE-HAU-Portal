@@ -6,9 +6,9 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">
+            <h2 class="page-header">
                 Manage Members
-            </h1>
+            </h2>
         </div>
     </div>
 <div class="row">
