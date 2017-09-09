@@ -4,18 +4,20 @@
     <ul class="nav nav-tabs" role="tablist" id="eventsList">
         @foreach($container as $event)
             @foreach(array_keys($event) as $eventName)
-                <li role="presentation" class="@if($loop->first)'active'@endif"><a href="#{{ str_replace(' ', '', $eventName) }}" aria-controls="{{ str_replace(' ', '', $eventName) }}" role="tab" data-toggle="tab">{{ $eventName }}</a></li>
+                <li role="presentation"><a href="#{{ str_replace(' ', '', $eventName) }}" aria-controls="{{ str_replace(' ', '', $eventName) }}" role="tab" data-toggle="tab">{{ $eventName }}</a></li>
             @endforeach
         @endforeach
     </ul>
 
 
     <!-- Tab panes -->
-    <div class="tab-content">
+
+    <div class="tab-content" id="tblContents">
         @foreach($container as $event)
             @foreach(array_keys($event) as $eventName)
-                <div role="tabpanel" class="tab-pane fade in @if($loop->first)'active'@endif" id="{{ str_replace(' ', '', $eventName) }}">
+                <div role="tabpanel" class="tab-pane fade in" id="{{ str_replace(' ', '', $eventName) }}">
                     <br>
+                    <p class="text-danger"><strong>Remaining seats: {{ $seatCounts[$loop->parent->index] }}</strong></p>
                     <table class="table table-hover" id="tbl{{ str_replace(' ', '', $eventName) }}">
                         <thead>
                             @foreach($columnNames as $columnName)
@@ -65,21 +67,5 @@
         @endforeach
     </div>
 
+
 </div>
-{{--
-
-@foreach($container as $event)
-
-    @foreach(array_keys($event) as $key)
-        <p> Event name is {{ $key }}</p>
-    @endforeach
-
-    @foreach($event as $registeredUser)
-
-        @foreach($registeredUser as $user)
-            <p>{{ $user->name}}</p>
-        @endforeach
-
-    @endforeach
-
-@endforeach--}}

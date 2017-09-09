@@ -15,9 +15,10 @@ class MailWrapper{
     }
 
     function sendEmail($recipients=[]){
-        foreach($recipients as $recipient){
+        /*foreach($recipients as $recipient){
             Mail::to($recipient)->send($this->mailableInstance);
-        }
+        }*/
+        Mail::to($recipients)->send($this->mailableInstance);
     }
 }
 ?>

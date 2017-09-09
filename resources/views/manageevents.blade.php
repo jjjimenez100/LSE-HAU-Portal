@@ -1,5 +1,7 @@
-@extends('layouts.app')
-
+@extends('portal.portal-home')
+@section('additionalcssfiles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.15/r-2.1.1/datatables.min.css"/>
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -30,7 +32,9 @@
 @section('additionalScriptFiles')
     @include('partials.dTablesExternalJs')
     <script type="text/javascript" src="{{ asset('js/initializeDataTables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/ajax.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/crudAndModals.js') }}"></script>
+    <script type="text/javascript" src=" {{ asset('js/validations.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/events-management.js') }}"></script>
     <script>
         initializeRoutes("{{ route('events.store') }}", "{{ route('events.update') }}", "{{ route('events.delete') }}");

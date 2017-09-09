@@ -61,4 +61,16 @@ Route::get('/Officer-home', 'OfficerHomeController@index');
 
 Route::get('/Admin-home', 'AdminHomeController@index');
 
-Route::get('manage/registrations', 'RegistrationsController@index');
+Route::get('view/registrations', 'RegistrationsController@index');
+
+Route::get('announcements', 'AnnouncementsController@index');
+
+Route::post('announcements', 'AnnouncementsController@sendAnnouncements')->name('sendAnnouncements');
+
+Route::get('/portal', function(){
+    return view('portal.portal-home');
+});
+
+Route::get('/portal2', function(){
+    return view('portal.portal-home2');
+});

@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+    'host' => env('MAIL_HOST', 'smtp.sendgrid.net'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'jimenez.johnjoshua.jjj@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Joshua'),
+        'address' => env('MAIL_FROM_ADDRESS', 'lsehau@org'),
+        'name' => env('MAIL_FROM_NAME', 'LSE-HAU'),
     ],
 
     /*
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('MAIL_USERNAME', 'jjjimenez'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('MAIL_PASSWORD', 'joshuapogi143'),
 
     /*
     |--------------------------------------------------------------------------

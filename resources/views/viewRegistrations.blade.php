@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('additionalcssfiles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.15/r-2.1.1/datatables.min.css"/>
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -17,7 +19,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('additionalScriptFiles')
@@ -27,5 +28,8 @@
             $('.table').each(function(){
                initializeElements($(this));
             });
+
+            $('#eventsList').children().first().addClass('active');
+            $('#tblContents').children().first().addClass('active');
     </script>
 @endsection

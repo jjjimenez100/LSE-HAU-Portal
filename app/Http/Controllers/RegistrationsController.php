@@ -16,12 +16,13 @@ class RegistrationsController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::orderBy('id', 'asc')->get();
         $seatCounts = [];
         $container = [];
         $columnNames = Schema::getColumnListing('users');
         foreach($events as $event){
             $registrations = Registration::where('eventID', $event->id)->get();
+            array_push($seatCounts, $event->seatCount - count($registrations));
             $registeredUsers = [];
             foreach($registrations as $registration){
                 array_push($registeredUsers, $registration->member);
@@ -31,8 +32,10 @@ class RegistrationsController extends Controller
             ];
             array_push($container, $eventRegisteredUsers);
         }
-        return view('viewRegistrations')->with('container', $container)
-            ->with('columnNames', $columnNames);
+        return view('viewRegistrations')
+            ->with('container', $container)
+            ->with('columnNames', $columnNames)
+            ->with('seatCounts', $seatCounts);
     }
     public function show($id)
     {

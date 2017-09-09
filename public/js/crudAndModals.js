@@ -19,18 +19,6 @@ var USER_MODE = 1;
 var page = $(document);
 var currentUserId;
 var selectedUser;
-$body = $("body");
-
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-$(document).on({
-    ajaxStart: function() { $body.addClass("loading");    },
-    ajaxStop: function() { $body.removeClass("loading"); }
-});
 
 btnDismiss.on('click', function(){
     modalFailed.modal('hide');

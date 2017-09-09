@@ -11,7 +11,7 @@
     <title>{{ config('LSE-HAU') }}</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.15/r-2.1.1/datatables.min.css"/>
+    @yield('additionalcssfiles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -30,14 +30,10 @@
             no-repeat;
         }
 
-        /* When the body has the loading class, we turn
-           the scrollbar off with overflow:hidden */
         body.loading {
             overflow: hidden;
         }
 
-        /* Anytime the body has the loading class, our
-           modal element will be visible */
         body.loading .loadingDiv {
             display: block;
         }

@@ -28,7 +28,7 @@
 
 
                     <div class="form-group" id="seatCountFormGrp">
-                        <label for="contactNumber" class="col-sm-2 control-label">Seat Count</label>
+                        <label for="seatCount" class="col-sm-2 control-label">Seat Count</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="seatCount" name="seatCount" required/>
                             <span class="help-block hidden" id="seatCountError">
@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="form-group" id="eventDateFormGrp">
-                        <label for="password" class="col-sm-2 control-label">Event Date</label>
+                        <label for="eventDate" class="col-sm-2 control-label">Event Date</label>
                         <div class="col-sm-10">
                             <input type="date" class="form-control" id="eventDate" placeholder="Event Date" name="eventDate" required/>
                             <span class="help-block hidden" id="eventDateError">
@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="form-group" id="eventPosterFormGrp">
-                        <label for="password" class="col-sm-2 control-label">Event Poster</label>
+                        <label for="eventPoster" class="col-sm-2 control-label">Event Poster</label>
                         <div class="col-sm-10">
                             <label class="btn btn-default" id="fileLabel">
                                 Choose file to upload <input type="file" class="hidden" id="eventPoster" name="eventPoster" required/>
