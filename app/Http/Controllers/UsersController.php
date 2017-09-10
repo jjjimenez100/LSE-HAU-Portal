@@ -13,6 +13,7 @@ use View;
 use Response;
 use Illuminate\Validation\Rule;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 class UsersController extends Controller
 {
     /**
@@ -63,15 +64,12 @@ class UsersController extends Controller
             $newUser->email = $request->email;
             $newUser->name = $request->name;
             $newUser->password = bcrypt($request->password);
-            if($request->has('role')){
-                //pag admin may massubmit na role
-                $newUser->roleID = $request->role;
-            }
-            else{
-                //kasi same form din gagamitin ni officer
-                //kaso di niya nakikita at naeedit yung role
-                //so wala siyang masusubmit na role :)
+            if(Auth::user()->role->role != "Admin"){
                 $newUser->roleID = Role::$defaultRoleId;
+            }
+
+            else{
+                $newUser->roleID = $request->role;
             }
             $newUser->save();
 
@@ -116,7 +114,11 @@ class UsersController extends Controller
         else{
             $user = User::find($userId);
             $user->name = $request->name;
-            if($request->has('role')){
+            if(Auth::user()->role->role != "Admin"){
+                $user->roleID = Role::$defaultRoleId;
+            }
+
+            else{
                 $user->roleID = $request->role;
             }
             $user->collegeID = $request->college;

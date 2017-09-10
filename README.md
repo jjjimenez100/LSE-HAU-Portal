@@ -23,6 +23,7 @@ Final requirement for 6SOFTENG. A web based management portal for the organizati
 1. Main website "gallery tab". //jerez
 4. Main website -Add input validation on registration + login modal.
 
+x. add home tab
 x. user may see his/her registrations
 x. fix colors hover
 3. Main website - make "events tab" dynamic. (allow it to fetch data from the database)

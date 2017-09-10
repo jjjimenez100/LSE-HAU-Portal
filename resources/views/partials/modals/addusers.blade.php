@@ -37,12 +37,12 @@
                         </div>
                     </div>
 
-                    <div class="form-group" id="roleFormGrp">
+                    <div class="form-group @if(Auth::user()->role->role == 'Officer') hidden @endif" id="roleFormGrp">
                         <label for="college" class="col-sm-2 control-label">Role</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="role" id="roleSelect">
                                 @foreach($roles as $role)
-                                    <option>{{ $role->role }}</option>
+                                        <option>{{ $role->role }}</option>
                                 @endforeach
                             </select>
                         </div>

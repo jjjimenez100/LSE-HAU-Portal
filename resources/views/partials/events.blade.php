@@ -25,11 +25,10 @@
             @endforeach
             <td class="text-nowrap" style="vertical-align: middle;">
                 <button type="button" class="btn btn-primary edit" data-toggle="modal" data-target="#add" id="update{{ $event->id }}">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"> Update</i>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </button>
-                <br><br>
                 <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" id="delete{{ $event->id }}">
-                    <i class="fa fa-trash-o" aria-hidden="true"> Delete</i>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </button>
             </td>
         </tr>

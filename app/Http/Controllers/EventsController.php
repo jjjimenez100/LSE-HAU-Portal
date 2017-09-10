@@ -70,7 +70,7 @@ class EventsController extends Controller
 
         else{
             $newEvent = new Event;
-            $newEvent->eventName = $request->eventName;
+            $newEvent->eventName = preg_replace('/[^a-z0-9]/i', '_', $request->eventName);
             $newEvent->seatCount = $request->seatCount;
             $newEvent->eventDate = $request->eventDate;
             $newEvent->posterPath = null;

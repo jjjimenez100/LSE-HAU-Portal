@@ -1,21 +1,47 @@
-@extends('layouts.app')
+@extends('portal.portal-home')
+@section('additionalcssfiles')
+    <style>
+        .loadingDiv {
+            display:    none;
+            position:   fixed;
+            z-index:    1000;
+            top:        0;
+            left:       0;
+            height:     100%;
+            width:      100%;
+            background: rgba( 255, 255, 255, .8 )
+            url('https://www.thestudio.com/wp-content/themes/thestudio/images/lightbox/filters-load.gif')
+            50% 50%
+            no-repeat;
+        }
 
+        body.loading {
+            overflow: hidden;
+        }
+
+        body.loading .loadingDiv {
+            display: block;
+        }
+    </style>
+@endsection
 @section('content')
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="page-header">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i> <strong>Send Announcements</strong>
+            </h2>
+        </div>
+    </div>
 
-    <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><h4>Send Announcements</h4></div>
-
-                    <div class="panel-body">
+            <div class="col-md-6">
                         <form role="form" class="form-horizontal" id="addFormGrp">
                             {{ csrf_field() }}
 
                             <div class="form-group" id="SubjectFormGrp">
                                 <label for="subject" class="col-sm-2 control-label">
                                     Subject</label>
-                                <div class="col-sm-5">
+                                <div class="col-sm-10">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <input type="text" class="form-control" placeholder="Subject" id="subject" name="subject" required/>
@@ -24,17 +50,20 @@
                                 </div>
                             </div>
 
+                            <br>
 
                             <div class="form-group" id="messageFormGrp">
                                 <label for="message" class="col-sm-2 control-label">Message</label>
-                                <div class="col-sm-5">
-                                    <textarea class="form-control" rows="5" placeholder="Type your message here.." id="message"></textarea>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" rows="7" placeholder="Type your message here.." id="message"></textarea>
                                 </div>
                             </div>
 
+                            <br>
+
                             <div class="form-group" id="recipientsFormGrp">
                                 <label for="recipients" class="col-sm-2 control-label">Recipients</label>
-                                <div class="col-sm-5">
+                                <div class="col-sm-10">
                                     <select class="form-control" id="recipients" name="recipients">
                                         <option value="all">Everyone</option>
                                         <option value="heads">Officers and Admins</option>
@@ -52,27 +81,40 @@
                                 </div>
                             </div>
 
+                            <br>
+
                             <div class="form-group" id="messageType">
                                 <label for="messageType" class="col-sm-2 control-label">Send through:</label>
-                                <div class="col-sm-5">
-                                    <label class="checkbox-inline"><input type="checkbox"  id="email" name="email" checked>E-Mail</label>
-                                    <label class="checkbox-inline"><input type="checkbox"  id="text" name="text">Text Message</label>
+                                <div class="col-sm-10">
+                                    <label class="checkbox-inline"><input type="checkbox"  id="email" name="email" checked><i class="fa fa-envelope" aria-hidden="true"></i> E-Mail</label>
+                                    <label class="checkbox-inline"><input type="checkbox"  id="text" name="text"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 130%;"></i> Text Message</label>
                                 </div>
                             </div>
+
+
 
                             <div class="form-group">
-                                <div class="col-sm-2"></div>
-                                <div class="col-sm-5">
-                                    <button class="btn btn-primary" id="send">Send</button>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-7">
+                                    <button class="btn btn-primary" id="send" style="margin-right: 15px;">Send Message</button>
+                                    <button class="btn btn-danger" type="reset">Reset Fields</button>
                                 </div>
                             </div>
+
                         </form>
+
+                        <br>
                     </div>
 
+            <div class="col-md-6">
+                <div class="jumbotron" style="vertical-align: middle;">
+                    <h1><i class="fa fa-exclamation-circle text-danger" aria-hidden="true"></i> <span class="text-danger">Attention</span></h1>
+                    <br>
+                    <p>Please be wary of the messages you'll be sending to our members. Once the messages are queued, they cannot be cancelled anymore.
+                    <br><br>If any errors occured, please contact the head admin as soon as possible.</p>
                 </div>
             </div>
         </div>
-    </div>
 
     @include('partials.modals.success')
     @include('partials.modals.tryagain')
@@ -82,6 +124,7 @@
 @section('additionalScriptFiles')
     <script type="text/javascript" src="{{ asset('js/ajax.js') }}"></script>
     <script>
+        $('#sendAnnouncements').addClass('active');
         //cache jquery selectors
         var subjectInput = $('#subject');
         var messageInput = $('#message');

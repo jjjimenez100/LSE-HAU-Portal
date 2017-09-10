@@ -5,10 +5,17 @@ function initializeElements(tableSelector){
     dataTableClasses.sPageButtonActive = 'btn btn-primary';
     dataTableClasses.sPageButton = 'btn btn-default';
     dataTableInstance = tableSelector.DataTable({
-        "dom" : '<lf<t>ip>'
-        //"dom": 'Bfrtip',
-        /*buttons: [
-         'excelHtml5'
-         ]*/
+        //"dom" : '<lf<t>ip>'
+        "dom": 'B<lf<t>ip>',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: '<button class="btn btn-default hidden">Export to Excel</button>'
+            }
+         ]
     });
 }
+
+$('#btnExport').on('click', function(){
+    $('.buttons-html5').trigger('click');
+});

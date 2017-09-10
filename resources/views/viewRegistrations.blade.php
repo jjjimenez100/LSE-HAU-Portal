@@ -4,19 +4,18 @@
 @endsection
 @section('content')
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-md-12">
             <h2 class="page-header">
-                View Registrations
+                <i class="fa fa-list-ol" aria-hidden="true"></i> <strong>View Event Registrations</strong>
             </h2>
         </div>
     </div>
+
 <div class="row">
-    <div class="table-responsive">
+    <div class="col-md-12 table-responsive">
         @include('partials.registrations')
     </div>
 </div>
-
-
 
 @endsection
 
@@ -24,6 +23,7 @@
     @include('partials.dTablesExternalJs')
     <script type="text/javascript" src=" {{ asset('js/initializeDataTables.js') }}"></script>
     <script>
+            $('#viewRegistrations').addClass('active');
             $('.table').each(function(){
                initializeElements($(this));
             });

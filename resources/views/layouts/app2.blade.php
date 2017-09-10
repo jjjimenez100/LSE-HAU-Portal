@@ -44,9 +44,17 @@
                             <li id="CONTACT"><a class="main-menu" href="{{ route('contact') }}">CONTACT</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" style="margin: 0 15px 0 15px;">
-                            <li id="unq-btn1"><a href="#Registration" style="color: white;" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                            <li class="hidden-block-separator hidden-xs" style="width:10px; height: 50px;"></li>
-                            <li id="unq-btn2"><a href="#Login" style="color: white;" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            @if(!Auth::check())
+                                <li id="unq-btn1"><a href="#Registration" style="color: white;" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                <li class="hidden-block-separator hidden-xs" style="width:10px; height: 50px;"></li>
+                                <li id="unq-btn2"><a href="#Login" style="color: white;" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            @else
+                                @if(Auth::user()->role->role != "User")
+                                    <li id="unq-btn2"><a href="{{ route('users.index') }}" style="color: white;" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Portal</a></li>
+                                @else
+                                    <li id="unq-btn2"><a href="{{ route('default') }}" style="color: white;" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Portal</a></li>
+                                @endif
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -63,8 +71,10 @@
                         <div style="display: inline-block; height: 100%; width: 50%;">
                             <div style="height: 25%; width:160px;"><h4><a class="footer-links" href="{{ route('gallery') }}">Gallery</a></h4></div>
                             <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="{{ route('contact') }}">Contact</a></h4></div>
-                            <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="#">Sign Up</a></h4></div>
-                            <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="#">Login</a></h4></div>
+                            @if(!Auth::check())
+                                <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="#">Sign Up</a></h4></div>
+                                <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="#">Login</a></h4></div>
+                            @endif
                         </div>
                         <div style="display: inline-block; height: 100%; width: 50%;float: left;">
                             <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="{{ route('lse') }}">Home</a></h4></div>
@@ -100,8 +110,10 @@
                         <a href="https://twitter.com/LSEHAUofficial"><i class="fa fa-twitter-square" style="font-size:48px;color:white; padding: 10px;"></i></a>
                         <a href="#"><i class="fa fa-google-plus-square" style="font-size:48px;color:white; padding: 10px;"></i></a>
                         <br/>
-                        <button href="#Login" type="button" class="btn btn-transparent" style="width: 100px;" data-toggle="modal" data-target="#myModal" >Log In</button>
-                        <button href="#Registration" type="button" class="btn btn-transparent" style="width: 100px;" data-toggle="modal" data-target="#myModal" >Sign Up</button>
+                        @if(!Auth::check())
+                            <button href="#Login" type="button" class="btn btn-transparent" style="width: 100px;" data-toggle="modal" data-target="#myModal" >Log In</button>
+                            <button href="#Registration" type="button" class="btn btn-transparent" style="width: 100px;" data-toggle="modal" data-target="#myModal" >Sign Up</button>
+                        @endif
                     </div>
                 </div>
                 <div class="foot-row2-col3">

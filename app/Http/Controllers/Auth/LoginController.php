@@ -41,6 +41,9 @@ class LoginController extends Controller
 
     protected function redirectTo(){
         $userRole = Auth::User()->role->role;
+        if($userRole == "Admin" || $userRole == "Officer"){
+            return ("/portal/manage/users");
+        }
         return ("/{$userRole}-home");
     }
 

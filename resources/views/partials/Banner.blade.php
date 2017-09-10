@@ -23,8 +23,16 @@
                 <h4 class="hidden-xxs">
                     Take a seat with us and together, we'll pass this semester!
                 </h4>
-                <button type="button" class="btn btn-transparent" data-toggle="modal" data-target="#myModal">Login</button>
-                <button type="button" class="btn btn-transparent" data-toggle="modal" data-target="#myModal">Sign Up</button>
+                @if(!Auth::check())
+                    <button type="button" class="btn btn-transparent" data-toggle="modal" data-target="#myModal">Login</button>
+                    <button type="button" class="btn btn-transparent" data-toggle="modal" data-target="#myModal">Sign Up</button>
+                @else
+                    @if(Auth::user()->role->role != "User")
+                        <a href="{{ route('users.index') }}" style="color: white;" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Back to Portal</a>
+                    @else
+                        <a href="{{ route('default') }}" style="color: white;" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Back to Portal</a>
+                    @endif
+                @endif
             </div>
             <div class="box-footer-2"></div>
         </div>

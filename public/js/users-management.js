@@ -198,6 +198,7 @@ function addLayout(){
     confirmPassGrp.removeClass('hidden');
 
     emptyInputFields();
+    inputRole.val("User");
 
     btnSave.addClass('disabled');
     btnSave.prop('disabled', true);

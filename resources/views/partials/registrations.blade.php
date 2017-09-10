@@ -4,9 +4,10 @@
     <ul class="nav nav-tabs" role="tablist" id="eventsList">
         @foreach($container as $event)
             @foreach(array_keys($event) as $eventName)
-                <li role="presentation"><a href="#{{ str_replace(' ', '', $eventName) }}" aria-controls="{{ str_replace(' ', '', $eventName) }}" role="tab" data-toggle="tab">{{ $eventName }}</a></li>
+                <li role="presentation"><a href="#{{ str_replace(' ', '', $eventName) }}" aria-controls="{{ str_replace(' ', '', $eventName) }}" role="tab" data-toggle="tab"><i class="fa fa-calendar" aria-hidden="true"></i> {{ $eventName }}</a></li>
             @endforeach
         @endforeach
+            <button class="btn btn-primary" style="float: right;" id="btnExport"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export all</button>
     </ul>
 
 

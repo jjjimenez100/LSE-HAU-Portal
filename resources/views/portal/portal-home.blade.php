@@ -17,26 +17,8 @@
             background: #373d42;
         }
 
-        .loadingDiv {
-            display:    none;
-            position:   fixed;
-            z-index:    1000;
-            top:        0;
-            left:       0;
-            height:     100%;
-            width:      100%;
-            background: rgba( 255, 255, 255, .8 )
-            url('https://www.thestudio.com/wp-content/themes/thestudio/images/lightbox/filters-load.gif')
-            50% 50%
-            no-repeat;
-        }
-
-        body.loading {
-            overflow: hidden;
-        }
-
-        body.loading .loadingDiv {
-            display: block;
+        div.dt-buttons {
+            float: right;
         }
     </style>
 </head>
@@ -53,48 +35,58 @@
                 </button>
                 <a class="navbar-brand" href="index.html">LSE-HAU</a>
             </div>
-            <!-- Top Menu Items -->
+
 
             <ul class="nav navbar-right top-nav">
+                <li><a href="{{ route('lse') }}"><i class="fa fa-globe" aria-hidden="true"></i> Main Website</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->name }} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fa fa-fw fa-power-off"></i> Log Out
+                            </a>
                         </li>
                     </ul>
                 </li>
             </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <br>
                     <img src="{{ asset('images/lse-logo2.png') }}" style="width: 220px;, height: 220px;" class="center-block">
                     <br>
-                    <li class="active">
-                        <a href="index.html"><i class="fa fa-user-circle" aria-hidden="true"></i> Member Profile</a>
-                    </li>
-                    <li>
-                        <a href="../../../../../Documents/startbootstrap-sb-admin-3.3.7/blank-page.html"><i class="fa fa-list-ol" aria-hidden="true"></i> Event Registrations</a>
-                    </li>
-                    <li>
-                        <a href="../../../../../Documents/startbootstrap-sb-admin-3.3.7/index-rtl.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Conferencing Rooms</a>
+                    <li id="membersManagement">
+                        <a href="{{ route('users.index') }}"><strong><i class="fa fa-users" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> Members Management</strong></a>
                     </li>
 
-                    <li>
-                        <a href="../../../../../Documents/startbootstrap-sb-admin-3.3.7/index-rtl.html"><i class="fa fa-globe" aria-hidden="true"></i> Main Website</a>
+                    <li id="viewRegistrations">
+                        <a href="{{ route('registrations') }}"><strong><i class="fa fa-list-ol" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> View Event Registrations</strong></a>
+                    </li>
+                    <li id="eventsManagement">
+                        <a href="{{ route('events.index') }}"><strong><i class="fa fa-calendar" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> Events Management</strong></a>
+                    </li>
+                    <li id="sendAnnouncements">
+                        <a href="{{ route('announcements') }}"><strong><i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> Send Announcements</strong></a>
+                    </li>
+
+                    <li id="conferencingRooms">
+                        <a href="#"><strong><i class="fa fa-video-camera" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> Conferencing Rooms</strong></a>
+                    </li>
+
+                    <li class="text-center">
+                        <a href="#" style="pointer-events: none; cursor: default;"><strong style="font-size: 110%;"><i class="fa fa-copyright" aria-hidden="true"></i> LSE-HAU 2017</strong></a>
                     </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </nav>
 
-        <div id="page-wrapper">
+        <div id="page-wrapper" style="border: 5px double #373d42;">
 
             <div class="container-fluid">
 
