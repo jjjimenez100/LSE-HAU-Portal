@@ -1,24 +1,23 @@
-@extends('layouts.app')
+@extends('portal.portal-home')
 @section('additionalcssfiles')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.15/r-2.1.1/datatables.min.css"/>
 @endsection
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><h4>View Registrations Per Event</h4></div>
-
-                    <div class="panel-body">
-
-                        <div class="table-responsive">
-                            @include('partials.registrations')
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">
+                View Registrations
+            </h2>
         </div>
     </div>
+<div class="row">
+    <div class="table-responsive">
+        @include('partials.registrations')
+    </div>
+</div>
+
+
+
 @endsection
 
 @section('additionalScriptFiles')

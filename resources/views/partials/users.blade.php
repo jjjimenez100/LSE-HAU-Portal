@@ -3,6 +3,8 @@
         <tr>
             @foreach($columnNames as $columnName)
                 @if($loop->index == 6 || $loop->index == 7) @continue
+                @elseif($columnName == "created_at" || $columnName == "updated_at")
+                    @continue
                 @elseif($loop->index == 1)<th>College</th>
                 @elseif($loop->index == 2)<th>Role</th>
                 @else<th>{{ $columnName }}</th>
@@ -17,6 +19,8 @@
                 @foreach($columnNames as $columnName)
                     @if($columnName == "password" || $columnName == "remember_token")
                         @continue
+                    @elseif($columnName == "created_at" || $columnName == "updated_at")
+                            @continue
                     @elseif($columnName == "collegeID")
                         <td>{{ $colleges[($user->$columnName)-1]['collegeDepartment'] }}</td>
                     @elseif($columnName == "roleID")
