@@ -16,7 +16,7 @@
         <tr id="{{ $event->id }}">
             @foreach($columnNames as $columnName)
                 @if($columnName == "posterPath")
-                    <td><img src="{{ asset($event->$columnName) }}" style="width: 200px; height: 100px"></td>
+                    <td><img src="{{ asset($event->$columnName) }}" style="width: 130px; height: 60px"></td>
                 @elseif($columnName == "created_at" || $columnName == "updated_at")
                     <td class="text-center" style="vertical-align: middle;">{{ $event->$columnName->diffForHumans() }}</td>
                 @else

@@ -70,7 +70,7 @@ class EventsController extends Controller
 
         else{
             $newEvent = new Event;
-            $newEvent->eventName = preg_replace('/[^a-z0-9]/i', '_', $request->eventName);
+            $newEvent->eventName = preg_replace('/[^a-z0-9]/i', ' ', $request->eventName);
             $newEvent->seatCount = $request->seatCount;
             $newEvent->eventDate = $request->eventDate;
             $newEvent->posterPath = null;
@@ -112,7 +112,7 @@ class EventsController extends Controller
         else{
             if($request->has('id')){
                 $event = Event::findOrFail($request->id);
-                $event->eventName = $request->eventName;
+                $event->eventName = preg_replace('/[^a-z0-9]/i', ' ', $request->eventName);
                 $event->seatCount = $request->seatCount;
                 $event->eventDate = $request->eventDate;
                 if($request->hasFile('file')){

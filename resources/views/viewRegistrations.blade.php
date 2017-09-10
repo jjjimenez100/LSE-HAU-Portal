@@ -7,6 +7,7 @@
         <div class="col-md-12">
             <h2 class="page-header">
                 <i class="fa fa-list-ol" aria-hidden="true"></i> <strong>View Event Registrations</strong>
+                <button class="btn btn-primary" style="float: right;" id="btnExport"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export all</button>
             </h2>
         </div>
     </div>

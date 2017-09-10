@@ -37,6 +37,11 @@ class RegistrationsController extends Controller
             ->with('columnNames', $columnNames)
             ->with('seatCounts', $seatCounts);
     }
+
+    public function store(Request $request){
+
+    }
+
     public function show($id)
     {
         //
