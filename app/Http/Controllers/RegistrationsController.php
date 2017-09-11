@@ -39,7 +39,12 @@ class RegistrationsController extends Controller
     }
 
     public function store(Request $request){
+        $newRegistration = new Registration;
+        $newRegistration->eventID = $request->eventID;
+        $newRegistration->userID = $request->userID;
+        $newRegistration->save();
 
+        return response()->json($newRegistration);
     }
 
     public function show($id)

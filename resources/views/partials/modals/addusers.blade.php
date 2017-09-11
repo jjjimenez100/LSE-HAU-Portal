@@ -1,5 +1,5 @@
 <div class="modal fade" tabindex="-1" role="dialog" id="add" style="color: white;">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" role="document"  style="border: 5px double #373d42;">
         <div class="modal-content">
             <div class="modal-header" style="background-color: #2d2f31;">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>

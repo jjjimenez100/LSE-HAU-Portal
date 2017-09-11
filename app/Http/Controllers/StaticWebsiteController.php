@@ -25,16 +25,26 @@ class StaticWebsiteController extends Controller
             array_push($seatCounts, $event->seatCount - count($registrations));
         }
 
+        $registered = [];
         if(Auth::check()){
             if(Registration::where('userID', Auth::user()->id)->first()){
-                $eventsRegistered = Registration::where('userID', Auth::user()->id)->get();
+                //$eventsRegistered = Registration::where('userID', Auth::user()->id)->get();
+                foreach($events as $event){
+                    $check = Registration::where('userID', Auth::user()->id)->where('eventID', $event->id)->count();
+                    if($check!=0){
+                        array_push($registered, true);
+                    }
+                    else{
+                        array_push($registered, false);
+                    }
+                }
             }
         }
         return view('events')
             ->with('colleges', $this->getListOfColleges())
             ->with('events', $events)
             ->with('seatCounts', $seatCounts)
-            ->with('eventsRegistered', $eventsRegistered);
+            ->with('registered', $registered);
     }
 
     public function contact(){

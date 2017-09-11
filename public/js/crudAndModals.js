@@ -19,6 +19,9 @@ var USER_MODE = 1;
 var page = $(document);
 var currentUserId;
 var selectedUser;
+modalSuccess.on('hidden.bs.modal', function(){
+    window.location.reload(true);
+});
 
 btnDismiss.on('click', function(){
     modalFailed.modal('hide');

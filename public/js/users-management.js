@@ -25,7 +25,7 @@ deleteBtns.on('click', fDelete);
 resetPassBtns.on('click', resetDialog);
 btnDelete.on('click', deleteUser);
 triggerResetPassword.on('click', resetPassword);
-btnClose.on('click', function(){
+modalSuccess.on('hidden.bs.modal', function(){
     window.location.reload(true);
 });
 

@@ -66,6 +66,7 @@ Route::group(['prefix' => 'portal/'], function(){
     });
 
     Route::get('view/registrations', 'RegistrationsController@index')->name('registrations');
+    Route::post('register/event', 'RegistrationsController@store')->name('registerevent');
 
     Route::group(['prefix' => 'send/announcements'], function(){
         Route::get('/', 'AnnouncementsController@index')->name('announcements');

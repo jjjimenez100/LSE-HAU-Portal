@@ -66,9 +66,7 @@ btnAdd.on('click', addLayout);
 editBtns.on('click', editLayout);
 deleteBtns.on('click', fDelete);
 btnDelete.on('click', deleteEvent);
-btnClose.on('click', function(){
-    window.location.reload(true);
-});
+
 var routeAdd, routeUpdate, routeDelete;
 
 function initializeRoutes(rAdd, rUpdate, rDelete){
