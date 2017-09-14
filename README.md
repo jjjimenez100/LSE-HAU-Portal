@@ -23,15 +23,15 @@ Final requirement for 6SOFTENG. A web based management portal for the organizati
 1. Main website "gallery tab". //jerez
 4. Main website -Add input validation on registration + login modal.
 
-x. add home tab
-x. user may see his/her registrations //todo
+x. add home tab for admins
+x. profile management for users
 x. fix colors hover
 
 6. Profile Management (Update) w/ input validation (no modals)
 
 7. Design RTC module. (Add more features in the future, not priority)
 8. Role level based: 
-9. Home pages for users.
+
 10. Link forgot password controller from the main website modal link.
 forgot password landing, email url.
 
@@ -49,3 +49,6 @@ forgot password landing, email url.
 17. linisin events.js
 11. users to register on events at main website
 Home pages for Admin, Officer
+x. user may see his/her registrations //todo
+9. Home pages for users.
+todo: finish users home

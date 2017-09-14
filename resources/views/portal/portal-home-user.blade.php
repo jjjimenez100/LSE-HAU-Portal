@@ -59,27 +59,22 @@
                 <ul class="nav navbar-nav side-nav">
                     <br>
                     <img src="{{ asset('images/lse-logo2.png') }}" style="width: 220px;, height: 220px;" class="center-block">
+                    <br>
 
-                    <li id="home">
-                        <a href="#"><strong><i class="fa fa-home" style="font-size: 125%; padding-right: 5%;"></i> Home</strong></a>
-                    </li>
-
-                    <li id="membersManagement">
-                        <a href="{{ route('users.index') }}"><strong><i class="fa fa-users" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> Members Management</strong></a>
+                    <li id="profileManagement">
+                        <a href="#"><strong><i class="fa fa-user" style="font-size: 125%; padding-right: 5%;"></i> Profile Management</strong></a>
                     </li>
 
                     <li id="viewRegistrations">
-                        <a href="{{ route('registrations') }}"><strong><i class="fa fa-list-ol" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> View Event Registrations</strong></a>
-                    </li>
-                    <li id="eventsManagement">
-                        <a href="{{ route('events.index') }}"><strong><i class="fa fa-calendar" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> Events Management</strong></a>
-                    </li>
-                    <li id="sendAnnouncements">
-                        <a href="{{ route('announcements') }}"><strong><i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> Send Announcements</strong></a>
+                        <a href="{{ route('individualregistrations') }}"><strong><i class="fa fa-list-ol" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> View Registrations</strong></a>
                     </li>
 
                     <li id="conferencingRooms">
                         <a href="#"><strong><i class="fa fa-video-camera" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> Conferencing Rooms</strong></a>
+                    </li>
+
+                    <li id="back">
+                        <a href="{{ route('lse') }}"><strong><i class="fa fa-arrow-circle-left" style="font-size: 125%; padding-right: 5%;"></i> Back to Main Website</strong></a>
                     </li>
 
                     <li id="logout">
@@ -88,6 +83,7 @@
                                 </i> Log Out</strong>
                         </a>
                     </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

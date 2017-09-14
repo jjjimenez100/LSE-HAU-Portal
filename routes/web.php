@@ -10,45 +10,22 @@
 |
 */
 
+//route group for main website
+Route::group(['prefix' => '/'], function(){
+    Route::get('', 'StaticWebsiteController@index')->name('lse');
+    Route::get('events', 'StaticWebsiteController@events')->name('events');
+    Route::get('about-thebirth', 'StaticWebsiteController@aboutBirth')->name('birth');
+    Route::get('contact', 'StaticWebsiteController@contact')->name('contact');
+    Route::get('about-mnv', 'StaticWebsiteController@aboutMnv')->name('mnv');
+    Route::get('gallery', 'StaticWebsiteController@gallery')->name('gallery');
+});
 
-Route::get('/', 'StaticWebsiteController@index')->name('lse');
-
-Route::get('/events', 'StaticWebsiteController@events')->name('events');
-
-Route::get('/about-thebirth', 'StaticWebsiteController@aboutBirth')->name('birth');
-
-Route::get('/contact', 'StaticWebsiteController@contact')->name('contact');
-
-Route::get('/about-mnv', 'StaticWebsiteController@aboutMnv')->name('mnv');
-
-Route::get('/gallery', 'StaticWebsiteController@gallery')->name('gallery');
-
-//Route::resource('manage/users', 'UsersController');
-
+//authentication routes
 Auth::routes();
 
-Route::get('/email', function(){
-   return view('email');
-});
-
-Route::get('/sms', function(){
-    return view('sms');
-});
-
-Route::get('/rtc1', function(){
-    return view('rtc');
-});
-
-Route::post('/sentEmail', "EmailController@sendEmail")->name('confirmedEmail');
-Route::post('/sentSms', "SmsController@sendSms")->name('confirmedSms');
-
-Route::get('/User-home', 'UserHomeController@index')->name('default');
-
-Route::get('/Officer-home', 'OfficerHomeController@index');
-
-Route::get('/Admin-home', 'AdminHomeController@index');
-
+//routes for officer/admin portal layout
 Route::group(['prefix' => 'portal/'], function(){
+
     Route::group(['prefix' => 'manage/'], function(){
         Route::group(['prefix' => 'users/'], function(){
             Route::get('/', 'UsersController@index')->name('users.index');
@@ -65,30 +42,50 @@ Route::group(['prefix' => 'portal/'], function(){
         });
     });
 
-    Route::get('view/registrations', 'RegistrationsController@index')->name('registrations');
-    Route::post('register/event', 'RegistrationsController@store')->name('registerevent');
+    Route::get('registrations/all', 'RegistrationsController@index')->name('registrations');
 
     Route::group(['prefix' => 'send/announcements'], function(){
         Route::get('/', 'AnnouncementsController@index')->name('announcements');
         Route::post('/', 'AnnouncementsController@sendAnnouncements')->name('sendAnnouncements');
     });
 
-    //lahat to dapat may middleware
 });
 
-/*Route::get('manage/users', 'UsersController@index')->name('users.index');
+//routes for user portal
+Route::group(["prefix" => 'portal/user/'], function(){
+    Route::group(['prefix' => 'registrations/'], function(){
+        Route::get('', 'IndividualRegistrationsController@index')->name('individualregistrations');
+        Route::post('', 'RegistrationsController@store')->name('registerevent');
+        Route::delete('delete', 'RegistrationsController@destroy')->name('deleteregistration');
+    });
 
-Route::post('manage/users', 'UsersController@store')->name('users.store');
+    Route::group(['prefix' => 'profile/manage/'], function(){
+        Route::get('', 'ProfileManagementController@index');
+        Route::put('update', 'ProfileManagementController@updateProfile');
+    });
 
-Route::put('manage/users/update', 'UsersController@update')->name('users.update');
+    Route::get('home', 'UserController@index')->name('default');
+});
 
-Route::delete('manage/users/delete', 'UsersController@delete')->name('users.delete');
-//
-Route::get('manage/events', 'EventsController@index')->name('events.index');
-Route::post('manage/events', 'EventsController@store')->name('events.store');
-Route::put('manage/events/update', 'EventsController@update')->name('events.update');
-Route::delete('manage/events/delete', 'EventsController@destroy')->name('events.delete');
+Route::get('/rtc1', function(){
+    return view('rtc');
+});
 
-Route::get('announcements', 'AnnouncementsController@index');
 
-Route::post('announcements', 'AnnouncementsController@sendAnnouncements')->name('sendAnnouncements');*/
+/*
+ * Deprecated routes
+ */
+
+/*
+ *
+Route::post('/sentEmail', "EmailController@sendEmail")->name('confirmedEmail');
+Route::post('/sentSms', "SmsController@sendSms")->name('confirmedSms');
+
+Route::get('/User-home', 'UserHomeController@index')->name('default');
+
+Route::get('/Officer-home', 'OfficerHomeController@index');
+
+Route::get('/Admin-home', 'AdminHomeController@index');
+ */
+
+

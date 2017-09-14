@@ -1,5 +1,30 @@
 @extends('layouts.app2')
+@section('additionalcssfiles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.15/r-2.1.1/datatables.min.css"/>
+    <style>
+        .loadingDiv {
+            display:    none;
+            position:   fixed;
+            z-index:    1000;
+            top:        0;
+            left:       0;
+            height:     100%;
+            width:      100%;
+            background: rgba( 255, 255, 255, .8 )
+            url('https://www.thestudio.com/wp-content/themes/thestudio/images/lightbox/filters-load.gif')
+            50% 50%
+            no-repeat;
+        }
 
+        body.loading {
+            overflow: hidden;
+        }
+
+        body.loading .loadingDiv {
+            display: block;
+        }
+    </style>
+@endsection
 @section('content')
     <section class="container-full" style=" background: repeating-linear-gradient(45deg,#DBDBDB,#DBDBDB 2px,#F0F0F0 2px,#F0F0F0 4px); text-align: center;">
         <div class="container-auto-width">
@@ -19,11 +44,17 @@
                                 @if(!empty($registered))
                                     @if($registered[$loop->index] == true)
                                         <button class="btn btn-default btn-lg" disabled>Reserved!</button>
+                                    @elseif($seatCounts[$loop->index] == 0)
+                                        <button class="btn btn-default btn-lg" disabled>No remaining seats available</button>
                                     @else
                                         <button class="btn btn-success btn-lg reserve" id="{{ $event->id }}" >Reserve me a seat!</button>
                                     @endif
                                 @else
-                                    <button class="btn btn-success btn-lg reserve" id="{{ $event->id }}" >Reserve me a seat!</button>
+                                    @if($seatCounts[$loop->index] == 0)
+                                        <button class="btn btn-default btn-lg" disabled>No remaining seats available</button>
+                                    @else
+                                        <button class="btn btn-success btn-lg reserve" id="{{ $event->id }}" >Reserve me a seat!</button>
+                                        @endif
                                 @endif
                             @else
                                 <button class="btn btn-default btn-lg" disabled>Login to reserve your seat!</button>
@@ -60,7 +91,7 @@
                 "url" : "{{ route('registerevent') }}",
                 "data" : {
                     "eventID" : $(this).prop('id'),
-                    "userID" :  "{{ Auth::user()->id }}"
+                    "userID" :  "{{ $userId }}"
                 },
                 "dataType" : "json",
                 "success" : function(data){

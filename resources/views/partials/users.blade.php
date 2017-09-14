@@ -14,7 +14,7 @@
         <tbody id="tableBody">
         @foreach($users as $user)
             @if(Auth::user()->role->role == "Officer")
-                @if($user->role->role == "User")
+                @if($user->role->role == "User" || Auth::user()->email == $user->email)
                     <tr id="{{ $user->id }}">
                         @foreach($columnNames as $columnName)
                             @if($columnName == "password" || $columnName == "remember_token")
@@ -32,13 +32,15 @@
                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             </button>
                             @if(Auth::user()->email != $user->email)
-                            <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" id="delete{{ $user->id }}">
-                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                            </button>
+                                <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" id="delete{{ $user->id }}">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
                             @endif
-                            <button type="button" class="btn btn-default resetPass" data-toggle="modal" data-target="#confirmation" id="resets{{ $user->id }}">
-                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                            </button>
+                            @if(Auth::user()->role->role != "Officer" || Auth::user()->email == $user->email)
+                                <button type="button" class="btn btn-default resetPass" data-toggle="modal" data-target="#confirmation" id="resets{{ $user->id }}">
+                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                </button>
+                            @endif
                         </td>
                     </tr>
                     @endif

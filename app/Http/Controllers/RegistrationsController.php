@@ -51,4 +51,28 @@ class RegistrationsController extends Controller
     {
         //
     }
+
+    public function destroy(Request $request){
+        $id = $request->id;
+        $registration = Registration::where('id', $id)->first();
+        if($registration->count() > 0){
+            $eventName = $registration->event->eventName;
+            $member = $registration->member->name;
+            Registration::where('id', $id)->delete();
+            return response()->json([
+               "success" => "true",
+                "message" => "successfully deleted registration",
+                "registrationInformation" => [
+                    "registrationId" => $id,
+                    "event" => $eventName,
+                    "member" => $member
+                ]
+            ]);
+        }
+
+        return response()->json([
+            "success" => "false",
+            "message" => "submitted id was not found in the database"
+        ]);
+    }
 }

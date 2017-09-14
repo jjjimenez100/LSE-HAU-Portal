@@ -44,7 +44,7 @@ class LoginController extends Controller
         if($userRole == "Admin" || $userRole == "Officer"){
             return ("/portal/manage/users");
         }
-        return ("/{$userRole}-home");
+        return ("/portal/user/home");
     }
 
     protected function showLoginForm() //prevent anyone from sending get request to /login

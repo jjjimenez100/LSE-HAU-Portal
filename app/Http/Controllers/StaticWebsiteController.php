@@ -26,6 +26,7 @@ class StaticWebsiteController extends Controller
         }
 
         $registered = [];
+        $userId = 0;
         if(Auth::check()){
             if(Registration::where('userID', Auth::user()->id)->first()){
                 //$eventsRegistered = Registration::where('userID', Auth::user()->id)->get();
@@ -39,12 +40,14 @@ class StaticWebsiteController extends Controller
                     }
                 }
             }
+            $userId = Auth::user()->id;
         }
         return view('events')
             ->with('colleges', $this->getListOfColleges())
             ->with('events', $events)
             ->with('seatCounts', $seatCounts)
-            ->with('registered', $registered);
+            ->with('registered', $registered)
+            ->with('userId', $userId);
     }
 
     public function contact(){
