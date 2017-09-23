@@ -54,7 +54,7 @@ class UsersController extends Controller
         $validation = Validator::make(Input::all(), $addRules);
         if($validation->fails()){
             return Response::json(
-                array('errors' => $validation->getMessageBag()->toArray()), 404);
+                array('errors' => $validation->getMessageBag()->toArray()), 400);
         }
 
         else{

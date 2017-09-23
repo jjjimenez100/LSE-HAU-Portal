@@ -45,14 +45,14 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right" style="margin: 0 15px 0 15px;">
                             @if(!Auth::check())
-                                <li id="unq-btn1"><a href="#Registration" style="color: white;" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                <li id="unq-btn1" class="register"><a href="#Registration" style="color: white;" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                                 <li class="hidden-block-separator hidden-xs" style="width:10px; height: 50px;"></li>
-                                <li id="unq-btn2"><a href="#Login" style="color: white;" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                <li id="unq-btn2" class="login"><a href="#Login" style="color: white;" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                             @else
                                 @if(Auth::user()->role->role != "User")
                                     <li id="unq-btn2"><a href="{{ route('users.index') }}" style="color: white;" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Portal</a></li>
                                 @else
-                                    <li id="unq-btn2"><a href="{{ route('default') }}" style="color: white;" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Portal</a></li>
+                                    <li id="unq-btn2"><a href="{{ route('profile') }}" style="color: white;" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Portal</a></li>
                                 @endif
                             @endif
                         </ul>
@@ -69,18 +69,15 @@
                 <div class="foot-row1-col1" style="color: white;">
                     <div style="height: 85%; width:auto; float: right; color: white; padding: 30px;">
                         <div style="display: inline-block; height: 100%; width: 50%;">
-                            <div style="height: 25%; width:160px;"><h4><a class="footer-links" href="{{ route('gallery') }}">Gallery</a></h4></div>
                             <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="{{ route('contact') }}">Contact</a></h4></div>
-                            @if(!Auth::check())
-                                <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="#">Sign Up</a></h4></div>
-                                <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="#">Login</a></h4></div>
-                            @endif
+                            <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="https://www.facebook.com/lsehauofficial/" target="_blank">Like Us</a></h4></div>
+                            <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="https://twitter.com/LSEHAUofficial" target="_blank">Follow Us</a></h4></div>
                         </div>
                         <div style="display: inline-block; height: 100%; width: 50%;float: left;">
                             <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="{{ route('lse') }}">Home</a></h4></div>
                             <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="{{ route('events') }}">Events</a></h4></div>
                             <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="{{ route('birth') }}">About</a></h4></div>
-                            <div style="height: 25%;width:160px;"><h4><a class="footer-links" href="https://www.facebook.com/lsehauofficial/">Like Us</a></h4></div>
+                            <div style="height: 25%; width:160px;"><h4><a class="footer-links" href="{{ route('gallery') }}">Gallery</a></h4></div>
                         </div>
                     </div>
                 </div>
@@ -106,13 +103,13 @@
                 <div class="foot-row1-col3">
                     <div style="height: auto; width:auto; float: left; margin-left: 60px; color: white;">
                         <h2 style="font-family: DKChalk !important; font-size: 48px;"><span style="padding: 20px;">Follow Us</span></h2>
-                        <a href="https://www.facebook.com/lsehauofficial/"><i class="fa fa-facebook-square" style="font-size:48px;color:white; padding: 10px;"></i></a>
-                        <a href="https://twitter.com/LSEHAUofficial"><i class="fa fa-twitter-square" style="font-size:48px;color:white; padding: 10px;"></i></a>
+                        <a href="https://www.facebook.com/lsehauofficial/" target="_blank"><i class="fa fa-facebook-square" style="font-size:48px;color:white; padding: 10px;"></i></a>
+                        <a href="https://twitter.com/LSEHAUofficial" target="_blank"><i class="fa fa-twitter-square" style="font-size:48px;color:white; padding: 10px;"></i></a>
                         <a href="#"><i class="fa fa-google-plus-square" style="font-size:48px;color:white; padding: 10px;"></i></a>
                         <br/>
                         @if(!Auth::check())
-                            <button href="#Login" type="button" class="btn btn-transparent" style="width: 100px;" data-toggle="modal" data-target="#myModal" >Log In</button>
-                            <button href="#Registration" type="button" class="btn btn-transparent" style="width: 100px;" data-toggle="modal" data-target="#myModal" >Sign Up</button>
+                            <button href="#Login" type="button" class="btn btn-transparent login" style="width: 100px;" data-toggle="modal" data-target="#myModal" >Log In</button>
+                            <button href="#Registration" type="button" class="btn btn-transparent register" style="width: 100px;" data-toggle="modal" data-target="#myModal" >Sign Up</button>
                         @endif
                     </div>
                 </div>
@@ -132,5 +129,32 @@
     </footer>
 </div>
 @yield('modal')
+<script type="text/javascript" src=" {{ asset('js/validations.js') }}"></script>
+<script>
+    $('.login').each(function(){
+        $(this).on('click', showLoginForm);
+    });
+
+    $('.register').each(function(){
+        $(this).on('click', showRegistrationForm);
+    });
+
+    function showLoginForm(){
+        $('.nav-tabs a[href="#Login"]').tab('show');
+    }
+
+    function showRegistrationForm(){
+        $('.nav-tabs a[href="#Registration"]').tab('show');
+    }
+    var btnSave = $('#registerBtn');
+    var inputEmail = $('#email');
+    var inputPassword = $('#password');
+
+    inputContactNumber.on('input', validateContactNumber);
+    inputPassword.on('input', validatePassword);
+    inputConfirmPassword.on('input', validateConfirmPassword);
+    inputName.on('input', validateName);
+    inputEmail.on('input', validateEmail);
+</script>
 </body>
 </html>

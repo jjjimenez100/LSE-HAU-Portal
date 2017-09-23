@@ -38,7 +38,10 @@ class ResetPasswordController extends Controller
 
     protected function redirectTo(){
         $userRole = Auth::User()->role->role;
-        return ("/{$userRole}-home");
+        if($userRole == "Admin" || $userRole == "Officer"){
+            return ("/portal/manage/users");
+        }
+        return ("portal/user/profile/manage/");
     }
 
     public function showResetForm(Request $request, $token = null)

@@ -62,7 +62,7 @@
                     <br>
 
                     <li id="profileManagement">
-                        <a href="#"><strong><i class="fa fa-user" style="font-size: 125%; padding-right: 5%;"></i> Profile Management</strong></a>
+                        <a href="{{ route('profile') }}"><strong><i class="fa fa-user" style="font-size: 125%; padding-right: 5%;"></i> Profile Management</strong></a>
                     </li>
 
                     <li id="viewRegistrations">
@@ -70,7 +70,7 @@
                     </li>
 
                     <li id="conferencingRooms">
-                        <a href="#"><strong><i class="fa fa-video-camera" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> Conferencing Rooms</strong></a>
+                        <a href="{{ route('rtcuser') }}"><strong><i class="fa fa-video-camera" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> Conferencing Rooms</strong></a>
                     </li>
 
                     <li id="back">

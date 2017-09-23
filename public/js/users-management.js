@@ -16,7 +16,7 @@ var triggerResetPassword = $('#triggerResetPass');
 var addBtnLayout = '<i class="fa fa-user-plus" aria-hidden="true"></i> Add';
 var editBtnLayout = '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update';
 //attach event handlers
-page.ready(initializeElements($('#tblUsers')));
+page.ready(initializeElements($('#tblUsers'), "LSE-HAU MEMBERS"));
 btnSave.on('click', save);
 btnAdd.on('click', addLayout);
 

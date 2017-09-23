@@ -24,13 +24,13 @@
                     Take a seat with us and together, we'll pass this semester!
                 </h4>
                 @if(!Auth::check())
-                    <button type="button" class="btn btn-transparent" data-toggle="modal" data-target="#myModal">Login</button>
-                    <button type="button" class="btn btn-transparent" data-toggle="modal" data-target="#myModal">Sign Up</button>
+                    <button type="button" class="btn btn-transparent login" data-toggle="modal" data-target="#myModal">Login</button>
+                    <button type="button" class="btn btn-transparent register" data-toggle="modal" data-target="#myModal">Sign Up</button>
                 @else
                     @if(Auth::user()->role->role != "User")
                         <a href="{{ route('users.index') }}" style="color: white;" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Back to Portal</a>
                     @else
-                        <a href="{{ route('default') }}" style="color: white;" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Back to Portal</a>
+                        <a href="{{ route('profile') }}" style="color: white;" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Back to Portal</a>
                     @endif
                 @endif
             </div>

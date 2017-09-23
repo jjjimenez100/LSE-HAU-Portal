@@ -188,7 +188,7 @@ function removeAllErrors(){
 
 function isValid(){
     if(emailError === false
-        && emailError == false
+        && nameError == false
         && contactError == false
         && passwordError == false
         && confirmError == false){

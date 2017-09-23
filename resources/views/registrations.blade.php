@@ -36,6 +36,7 @@
         </div>
     </div>
 
+
     <div class="row">
         <div class="table-responsive col-md-6">
             @include('partials.myregistrations')
@@ -44,7 +45,8 @@
             <div class="jumbotron">
                 <h1><i class="fa fa-exclamation-circle text-danger" aria-hidden="true"></i> <span class="text-danger">Attention</span></h1>
                 <br>
-                <p>In case that you change your mind on cancelling  your reservation on our event, you can simply go back to the main page and reserve again (Given that the remaining seats are not yet 0).</p>
+                <p class="text-justify">In case that you change your mind on cancelling  your reservation on our event, you can simply go back to the events page and reserve again (Given that the remaining seats are not yet 0). <br><br><a href="{{ route('events') }}" class="btn btn-primary"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to Events Page</a>
+                </p>
             </div>
         </div>
     </div>

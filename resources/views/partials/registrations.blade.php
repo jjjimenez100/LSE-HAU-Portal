@@ -18,7 +18,7 @@
                 <div role="tabpanel" class="tab-pane fade in" id="{{ str_replace(' ', '', $eventName) }}">
                     <br>
                     <p class="text-danger"><strong>Remaining seats: {{ $seatCounts[$loop->parent->index] }}</strong></p>
-                    <table class="table table-hover" id="tbl{{ str_replace(' ', '', $eventName) }}">
+                    <table class="table table-hover" id="{{ str_replace(' ', '', $eventName) }}">
                         <thead>
                             @foreach($columnNames as $columnName)
                                 @if($columnName == "created_at" || $columnName == "updated_at"

@@ -42,15 +42,16 @@ class LoginController extends Controller
     protected function redirectTo(){
         $userRole = Auth::User()->role->role;
         if($userRole == "Admin" || $userRole == "Officer"){
-            return ("/portal/manage/users");
+            return ("/portal/head/manage/users");
         }
-        return ("/portal/user/home");
+        return ("portal/user/profile/manage/");
     }
 
     protected function showLoginForm() //prevent anyone from sending get request to /login
     {
         return redirect('/');
     }
+
 
    /* protected function sendLoginResponse(Request $request){
         $request->session()->regenerate();

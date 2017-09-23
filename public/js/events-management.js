@@ -33,7 +33,7 @@ var noteToUser = $('#noteToUser');
 var addBtnLayout = '<i class="fa fa-calendar-check-o" aria-hidden="true"></i> Add';
 var editBtnLayout = '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update';
 
-$('document').on('load', initializeElements(tblEvents));
+$('document').on('load', initializeElements(tblEvents, "LSE-HAU Events"));
 eventPoster.on('change', function(upload){
     var fileName = upload.target.files[0].name + "";
 

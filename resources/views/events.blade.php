@@ -41,7 +41,9 @@
                             </p>
 
                             @if(Auth::check())
-                                @if(!empty($registered))
+                                @if(Auth::user()->role->role != "User")
+                                    <button class="btn btn-default btn-lg" disabled>Not allowed!</button>
+                                @elseif(!empty($registered))
                                     @if($registered[$loop->index] == true)
                                         <button class="btn btn-default btn-lg" disabled>Reserved!</button>
                                     @elseif($seatCounts[$loop->index] == 0)

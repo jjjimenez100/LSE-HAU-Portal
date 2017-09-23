@@ -16,13 +16,22 @@ class RoleChecker
     public function handle($request, Closure $next, $role)
     {
         if(!(Auth::check())){
-            return redirect("/");
+            abort(403, "Forbidden");
         }
         else{
             $userRole = Auth::User()->role->role;
-            if($userRole != $role){
-                return redirect("/{$userRole}-home");
+            if($role == "head"){
+                if($userRole == "User"){
+                    abort(403, "not allowed beybe! :)");
+                }
             }
+
+            else if($role == "user"){
+                if($userRole != "User"){
+                    abort(403, "not allowed beybe! :)");
+                }
+            }
+
             return $next($request);
         }
     }

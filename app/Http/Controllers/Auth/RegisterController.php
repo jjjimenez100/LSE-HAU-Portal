@@ -9,6 +9,7 @@ use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -24,12 +25,13 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/User-home';
+    protected function redirectTo(){
+        $userRole = Auth::User()->role->role;
+        if($userRole == "Admin" || $userRole == "Officer"){
+            return ("/portal/manage/users");
+        }
+        return ("portal/user/profile/manage/");
+    }
 
     /**
      * Create a new controller instance.

@@ -20,27 +20,26 @@ Final requirement for 6SOFTENG. A web based management portal for the organizati
 1. Implementation of token based Restful Api.
 
 # TO DO / TO FIX
-1. Main website "gallery tab". //jerez
-4. Main website -Add input validation on registration + login modal.
-
-x. add home tab for admins
-x. profile management for users
-x. fix colors hover
-
-6. Profile Management (Update) w/ input validation (no modals)
-
-7. Design RTC module. (Add more features in the future, not priority)
-8. Role level based: 
 
 10. Link forgot password controller from the main website modal link.
 forgot password landing, email url.
 
-13. create conferencing room for admins and officers
-14. join conferencing room for users.
+
+1. Main website "gallery tab". dagdag sa proj ginawa nya //jerez
+2. contact tab redesigned na ni jerez, baguhin nandito
+x. fix colors hover
+x. email layouts
+
 15. Restful api for future extensions of the app.
 
 
 #DONE BUT NEEDS MORE TEST CASES
+7. Design RTC module. (Add more features in the future, not priority)
+
+13. create conferencing room for admins and officers
+14. join conferencing room for users.
+4. Main website -Add input validation on registration + login modal.
+8. Role level based: 
 16. Announcements tab for admins and officers, (sms or email) (send to: everyone/users/admins/officers)
 5. Event Management (CRUD) w/ input validation (same as user management) DONE
 2. Main website "contact tab", fix design (also, https://formspree.io/).
@@ -51,4 +50,5 @@ forgot password landing, email url.
 Home pages for Admin, Officer
 x. user may see his/her registrations //todo
 9. Home pages for users.
-todo: finish users home
+x. profile management for users (password can be submitted when client side validation fails)
+6. Profile Management (Update) w/ input validation (no modals)

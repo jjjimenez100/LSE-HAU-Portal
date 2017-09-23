@@ -26,7 +26,7 @@
     <script>
             $('#viewRegistrations').addClass('active');
             $('.table').each(function(){
-               initializeElements($(this));
+               initializeElements($(this), $(this).attr('id'));
             });
 
             $('#eventsList').children().first().addClass('active');

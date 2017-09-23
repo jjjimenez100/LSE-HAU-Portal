@@ -1,6 +1,6 @@
 var dataTableClasses = $.fn.dataTable.ext.classes;
 var dataTableInstance;
-function initializeElements(tableSelector){
+function initializeElements(tableSelector, fileName){
     dataTableClasses.sPageButton = 'btn btn-default';
     dataTableClasses.sPageButtonActive = 'btn btn-primary';
     dataTableClasses.sPageButton = 'btn btn-default';
@@ -10,7 +10,8 @@ function initializeElements(tableSelector){
         buttons: [
             {
                 extend: 'excelHtml5',
-                text: '<button class="btn btn-default hidden">Export to Excel</button>'
+                text: '<button class="btn btn-default hidden">Export to Excel</button>',
+                title: fileName +" "+ new Date().toISOString().slice(0, 10)
             }
          ]
     });
