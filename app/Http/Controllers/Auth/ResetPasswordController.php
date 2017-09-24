@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Auth;
+use Illuminate\Http\Request;
 class ResetPasswordController extends Controller
 {
     /*
@@ -39,9 +40,9 @@ class ResetPasswordController extends Controller
     protected function redirectTo(){
         $userRole = Auth::User()->role->role;
         if($userRole == "Admin" || $userRole == "Officer"){
-            return ("/portal/manage/users");
+            return ("/portal/head/manage/users");
         }
-        return ("portal/user/profile/manage/");
+        return ("/porta/user/profile/manage");
     }
 
     public function showResetForm(Request $request, $token = null)

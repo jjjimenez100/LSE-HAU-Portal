@@ -54,7 +54,6 @@ Route::middleware(['role:head'])->group(function(){
 });
 //routes for officer/admin portal layout
 
-
 //routes for user portal
 Route::middleware(['role:user'])->group(function() {
     Route::group(["prefix" => 'portal/user/'], function () {

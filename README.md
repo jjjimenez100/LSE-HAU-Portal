@@ -21,21 +21,17 @@ Final requirement for 6SOFTENG. A web based management portal for the organizati
 
 # TO DO / TO FIX
 
-10. Link forgot password controller from the main website modal link.
-forgot password landing, email url.
 
-
-1. Main website "gallery tab". dagdag sa proj ginawa nya //jerez
-2. contact tab redesigned na ni jerez, baguhin nandito
-x. fix colors hover
+1. add yung gallery ni jerez 
+2. update contact sa sinend ni jerez
 x. email layouts
 
-15. Restful api for future extensions of the app.
 
 
 #DONE BUT NEEDS MORE TEST CASES
 7. Design RTC module. (Add more features in the future, not priority)
-
+10. Link forgot password controller from the main website modal link.
+forgot password landing, email url.
 13. create conferencing room for admins and officers
 14. join conferencing room for users.
 4. Main website -Add input validation on registration + login modal.

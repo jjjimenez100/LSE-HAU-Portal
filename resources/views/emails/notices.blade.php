@@ -3,18 +3,14 @@
     <head></head>
     <body>
 
-    {{$heading}}
+    <h1>{{$heading}}</h1>
 
-    {{$content}}
+    <p>{{$content}}</p>
 
-    @component('mail::button', ['url' => 'https://lsehau.esy.es'])
-        Check out our site!
-    @endcomponent
+    <p>If you have any inquiries or suggestions, you can email us at: lsehauofficial@gmail.com</p>
+    <br>
 
-    If you have any inquiries or suggestions, you can reply to this email,
-    @component('mail::panel')
-        LSE-HAU-TEAM
-    @endcomponent
+    <p>Regards, <br>LSE-HAU TEAM</p>
     </body>
     </html>
 

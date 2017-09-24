@@ -140,7 +140,6 @@
             chatOutput.append('<div style="padding-left: 10px;"><p>You are now at Room ID: ' + roomID.val() + '<strong> Say hello!</strong></p></div><hr>').focus();
             chatOutput.animate({scrollTop: chatOutput.prop("scrollHeight")}, 500);
             $('#leave').prop('disabled', false);
-            openBtn.prop('disabled', true);
             joinBtn.prop('disabled', true);
             inputMsg.prop('disabled', false);
             sendBtn.prop('disabled', false);
