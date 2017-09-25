@@ -3,12 +3,24 @@
     <tr>
         @foreach($columnNames as $columnName)
             @if($columnName == "posterPath")
-                <th>poster</th>
+                <th class="text-center">Poster</th>
+            @elseif($columnName == "posterFileName")
+                @continue
+            @elseif($columnName == "eventName")
+                <th class="text-center">Event</th>
+            @elseif($columnName == "seatCount")
+                <th class="text-center">Seat Count</th>
+            @elseif($columnName == "eventDate")
+                <th class="text-center">Date</th>
+            @elseif($columnName == "created_at")
+                <th class="text-center">Created</th>
+            @elseif($columnName == "updated_at")
+                <th class="text-center">Updated</th>
             @else
-                <th>{{ $columnName }}</th>
+                <th class="text-center">{{ $columnName }}</th>
             @endif
         @endforeach
-        <th>Actions</th>
+        <th class="text-center">Actions</th>
     </tr>
     </thead>
     <tbody id="tableBody">
@@ -19,6 +31,8 @@
                     <td><img src="{{ asset($event->$columnName) }}" style="width: 130px; height: 60px"></td>
                 @elseif($columnName == "created_at" || $columnName == "updated_at")
                     <td class="text-center" style="vertical-align: middle;">{{ $event->$columnName->diffForHumans() }}</td>
+                @elseif($columnName == "posterFileName")
+                    @continue
                 @else
                     <td class="text-center" style="vertical-align: middle;">{{ $event->$columnName }}</td>
                 @endif

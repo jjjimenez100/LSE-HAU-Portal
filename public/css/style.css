@@ -556,9 +556,10 @@ body.modal-open .blur-container, body.modal-open .affix,body.modal-open .side-co
 	height: 550px;
 	width: 25%;
 	float: left;
-	border: 1px solid #999999;
+	border: 1px solid #EC8846;
 	text-align: left;
 	padding:30px;
+	border-radius: 15px;
 }
 
 .ref-link
@@ -580,9 +581,49 @@ body.modal-open .blur-container, body.modal-open .affix,body.modal-open .side-co
 	background: white;
 	margin: 0 0 0 20px;
 	padding: 40px;
+	border-radius: 15px;
+	border: 1px solid #FFBB4F;
 }
 
 .contact-container > .form-group
 {
 	padding: 20px;
+}
+
+
+.port-image
+{
+	width: 100%;
+}
+
+.gallery_product
+{
+	margin-top: 30px;
+}
+
+.button-nav
+{
+	padding: 10px;
+}
+
+.filter-button
+{
+	border: 1px solid #888;
+	color: #333;
+	border-radius: 10px;
+	background: #F5B041;
+	display: inline-block;
+	padding: 10px;
+}
+
+.filter-button:focus
+{
+	background: #E67E22;
+	color: #EAEAEA;
+}
+
+.filter-button:hover
+{
+	background: #FFC66B;
+	transition: 0.3s;
 }

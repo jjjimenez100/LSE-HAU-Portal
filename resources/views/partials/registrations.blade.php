@@ -24,8 +24,21 @@
                                 @if($columnName == "created_at" || $columnName == "updated_at"
                                 || $columnName == "password" || $columnName == "remember_token")
                                     @continue
-                                 @endif
-                                <th> {{ $columnName }}</th>
+                                @elseif($loop->index == 1)<th>College</th>
+                                @elseif($loop->index == 2)<th>Role</th>
+                                @elseif($columnName == "contactNumber")
+                                    <th>Mobile #</th>
+                                @elseif($columnName == "created_at")
+                                    <th>Created</th>
+                                @elseif($columnName == "updated_at")
+                                    <th>Updated</th>
+                                @elseif($columnName == "name")
+                                    <th>Name</th>
+                                @elseif($columnName == "email")
+                                    <th>Email Address</th>
+                                @else
+                                    <th>{{ $columnName }}</th>
+                                @endif
                             @endforeach
                         </thead>
 

@@ -30,7 +30,7 @@
                     <div class="form-group" id="seatCountFormGrp">
                         <label for="seatCount" class="col-sm-2 control-label">Seat Count</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="seatCount" name="seatCount" required/>
+                            <input type="text" class="form-control" id="seatCount" placeholder="Seat Count" name="seatCount" required/>
                             <span class="help-block hidden" id="seatCountError">
                         <strong id="seatCountErrorText">Seat Count should be a positive number.</strong>
                     </span>

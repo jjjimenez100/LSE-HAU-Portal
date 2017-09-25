@@ -58,7 +58,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <br>
-                    <img src="{{ asset('images/lse-logo2.png') }}" style="width: 220px;, height: 220px;" class="center-block">
+                    <img src="{{ asset('images/lse-logo.png') }}" style="width: 220px;, height: 220px;" class="center-block">
                     <br>
 
                     <li id="profileManagement">

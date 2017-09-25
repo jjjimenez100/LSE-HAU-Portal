@@ -4,6 +4,10 @@
         @foreach($columnNames as $columnName)
             @if($loop->index == 0 || $loop->index == 1 || $loop->index == 2 || $loop->index == 4  || $loop->index == 6|| $loop->index == 7)
                 @continue
+            @elseif($columnName == "eventName")
+                <th>Event</th>
+            @elseif($columnName == "eventDate")
+                <th>Date</th>
             @else
                 <th>{{ $columnName }}</th>
             @endif

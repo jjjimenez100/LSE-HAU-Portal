@@ -38,7 +38,6 @@
                             <li id="ABOUT" class="dropdown"><a class="dropdown-toggle main-menu " data-toggle="dropdown" href="#">ABOUT</a>
                                 <ul class="dropdown-menu">
                                               <li><a href="{{ route('birth') }}">THE BIRTH OF LSE</a></li>
-                                              <li><a href="{{ route('mnv') }}">OUR MISSION AND VISION</a></li>
                                             </ul>
                             </li>
                             <li id="CONTACT"><a class="main-menu" href="{{ route('contact') }}">CONTACT</a></li>
@@ -150,6 +149,7 @@
     var inputEmail = $('#email');
     var inputPassword = $('#password');
 
+    var inputEmail = $('.emailReg');
     inputContactNumber.on('input', validateContactNumber);
     inputPassword.on('input', validatePassword);
     inputConfirmPassword.on('input', validateConfirmPassword);

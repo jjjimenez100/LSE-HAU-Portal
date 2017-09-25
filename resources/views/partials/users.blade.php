@@ -5,7 +5,18 @@
                 @if($loop->index == 6 || $loop->index == 7) @continue
                 @elseif($loop->index == 1)<th>College</th>
                 @elseif($loop->index == 2)<th>Role</th>
-                @else<th>{{ $columnName }}</th>
+                @elseif($columnName == "contactNumber")
+                    <th>Mobile #</th>
+                @elseif($columnName == "created_at")
+                    <th>Created</th>
+                @elseif($columnName == "updated_at")
+                    <th>Updated</th>
+                @elseif($columnName == "name")
+                    <th>Name</th>
+                @elseif($columnName == "email")
+                    <th>Email Address</th>
+                @else
+                    <th>{{ $columnName }}</th>
                 @endif
             @endforeach
             <th>Actions</th>

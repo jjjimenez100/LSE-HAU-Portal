@@ -64,3 +64,9 @@
         </div>
     </section>
 @endsection
+
+@section('modal')
+    @include('partials.modals.success')
+    @include('partials.modals.tryagain')
+    @include('partials.LoginSignUpModal')
+@endsection

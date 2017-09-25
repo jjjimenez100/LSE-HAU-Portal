@@ -35,7 +35,7 @@
         </div>
         <div id="about-body" style="padding: 20px 0 20px 0;">
             <div class="container">
-                <div id="map" style="height: 400px; width: 100%; border: 10px solid #777; border-radius: 20px;"></div>
+                <div id="map" style="height: 400px; width: 100%; border: 10px solid #C95538; border-radius: 20px;"></div>
                     <script>
                     function initMap() {
                         var uluru = {lat: 15.133207, lng: 120.590039};
@@ -53,22 +53,22 @@
                                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT2yZLGw6sA_WjA4wOBCB8SgtjHlhqoHY&callback=initMap">
                 </script>
                 <div style="display:block; height: 5px;"></div>
-                <div class="side-panel">
+                <div class="side-panel" style="background: #F5B041; color: white;">
                     <h5>
                         <span style="font-size: 15px;"><strong>League of Students for Excellence</strong></span></br></br>
                         Holy Angel University<br/> One St. Santo Rosario St,</br>
                         Angeles City, Pampanga</br></br>
                         HAU Tel. (045) 887 5748<br/>
                         lsehauofficial@gmail.com<br/>
-                        <a class="ref-link" style="color: #F39C12; text-decoration: underline;" href="http://hau.edu.ph/">hau.edu.ph</a>
+                        <a class="ref-link" style="color: white; text-decoration: underline;" href="http://hau.edu.ph/">hau.edu.ph</a>
                         <div style="height: 70px; display: block;"></div>
                         <img src="{{ asset('images/hau-campusmap-2016.jpg') }}" width="240" class="img-responsive center-block"/>
                         <div style="height: 20px; display: block;"></div>
-                        <a class="ref-link" style="color:#F39C12;" href="{{ asset('images/hau-campusmap-2016.jpg') }}" download>Download Campus Map</a>
+                        <a class="ref-link" style="color: #FEF9E7; text-decoration: underline;" href="{{ asset('images/hau-campusmap-2016.jpg') }}" download>Download Campus Map</a>
                     </h5>
                 </div>
                 <form role="form" method="POST" action="http://formspree.io/lsehauofficial@gmail.com" id="contactForm">
-                    <div class="contact-container">
+                    <div class="contact-container" style="background: #F9E79F;">
 
                             <h4>Have <strong>comments</strong> or <strong>suggestions</strong>? Send us a <strong style="color: #F39C12;">message</strong>.</h4></br>
                             <div class="form-group" id="nameFormGrp">

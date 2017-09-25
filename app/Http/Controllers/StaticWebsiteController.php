@@ -61,8 +61,9 @@ class StaticWebsiteController extends Controller
     /*public function aboutMnv(){
         return view('home')->with('colleges', getListOfColleges());
     }
+    */
 
     public function gallery(){
         return view('gallery')->with('colleges', $this->getListOfColleges());
-    }*/
+    }
 }

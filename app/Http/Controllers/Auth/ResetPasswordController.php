@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Auth;
 use Illuminate\Http\Request;
+use App\College;
 class ResetPasswordController extends Controller
 {
     /*
@@ -49,6 +50,6 @@ class ResetPasswordController extends Controller
     {
         return view('auth.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
-        );
+        )->with('colleges', College::all());
     }
 }
