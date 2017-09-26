@@ -70,33 +70,3 @@ Route::middleware(['role:user'])->group(function() {
         Route::get('/rtc', 'RTCController@index')->name('rtcuser');
     });
 });
-
-/*
- * Deprecated routes
- */
-
-/*
- *
- *
-Route::get('/rtc1', function(){
-    return view('rtc');
-});
-
-Route::get('/test', function(){
-    return view('rtcadmin');
-});
-
-Route::get('/user', function(){
-    return view('rtcuser');
-});
-Route::post('/sentEmail', "EmailController@sendEmail")->name('confirmedEmail');
-Route::post('/sentSms', "SmsController@sendSms")->name('confirmedSms');
-
-Route::get('/User-home', 'UserHomeController@index')->name('default');
-
-Route::get('/Officer-home', 'OfficerHomeController@index');
-
-Route::get('/Admin-home', 'AdminHomeController@index');
- */
-
-

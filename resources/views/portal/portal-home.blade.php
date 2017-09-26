@@ -59,7 +59,7 @@
                 <ul class="nav navbar-nav side-nav">
                     <br>
                     <img src="{{ asset('images/lse-logo.png') }}" style="width: 220px;, height: 220px;" class="center-block">
-
+                    <br>
                     <li id="membersManagement">
                         <a href="{{ route('users.index') }}"><strong><i class="fa fa-users" aria-hidden="true" style="font-size: 125%; padding-right: 5%;"></i> Members Management</strong></a>
                     </li>

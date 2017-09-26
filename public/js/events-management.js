@@ -219,9 +219,9 @@ function editLayout(){
     btnSave.removeClass('btn-success');
     btnSave.addClass('btn-primary');
 
-    eventName.val(selectedUser.find("td:eq(3)").text());
-    seatCount.val(selectedUser.find("td:eq(4)").text());
-    eventDate.val(selectedUser.find("td:eq(5)").text());
+    eventName.val(selectedUser.find("td:eq(2)").text());
+    seatCount.val(selectedUser.find("td:eq(3)").text());
+    eventDate.val(selectedUser.find("td:eq(4)").text());
 }
 
 function addLayout(){

@@ -37,6 +37,7 @@
             </div>
 
             <img class="navbar-brand" src="{{ asset('images/logo.png') }}" >
+
             <ul class="nav navbar-right top-nav">
                 <li><a href="{{ route('lse') }}"><i class="fa fa-globe" aria-hidden="true"></i> Main Website</a></li>
                 <li class="dropdown">
