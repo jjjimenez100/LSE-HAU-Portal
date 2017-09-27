@@ -199,9 +199,17 @@
             chatOutput.animate({scrollTop: chatOutput.prop("scrollHeight")}, 500);
         }
 
+        function chat(event){
+            chatOutput.append('<div style="padding-left: 10px;"><p><strong>' + event.extra.name + ':</strong>' + event.data + '</p></div><hr>');
+            chatOutput.animate({scrollTop: chatOutput.prop("scrollHeight")}, 500);
+        }
+
         var connection = new RTCMultiConnection();
         connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
         connection.socketMessageEvent = 'LSE-HAU PORTAL';
+        connection.extra = {
+            name: "{{ Auth::user()->name }}"
+        };
         connection.enableFileSharing = true;
         connection.session = {
             audio: true,
@@ -233,7 +241,7 @@
                 mediaElement.parentNode.removeChild(mediaElement);
             }
         };
-        connection.onmessage = appendDIV;
+        connection.onmessage = chat;
         connection.filesContainer = document.getElementById('chat-output');
         connection.enableLogs = false; //uncomment to debug
         connection.onUserIdAlreadyTaken = function(useridAlreadyTaken, yourNewUserId) {
